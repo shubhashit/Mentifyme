@@ -13,7 +13,7 @@ export default function Hero() {
             </div>
             <div></div>
             <div className='flex flex-row items-center'>
-                <img src={img} className='h-[30rem]' alt="" />
+                <img src={img} className='h-[28rem]' alt="" />
                 <div className='flex flex-col'>
                     <div className='text-2xl font-semibold'>India's <span className='text-[#696DCA]'> 1st A.I. based</span>  exclusive technology for Your <span className='text-[#696DCA]'> Personalised Time Table</span> </div>
                     <div className='m-2'><img src={lines} alt="" /></div>
