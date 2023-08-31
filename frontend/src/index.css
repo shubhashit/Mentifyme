@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body {
   background: #FFF;
   margin: 0;
@@ -15,8 +16,61 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.Mentor{
+
+.Mentor {
   background-image: url(./assets//MentorBG.png);
   background-size: cover;
-    background-position: center;
+  background-position: center;
+}
+
+.footerbtn {
+  border-radius: 0.6875rem;
+  border: 1px solid #FFF;
+  background: rgba(255, 255, 255, 0.10);
+  box-shadow: 10px 10px 4px 0px rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(9px);
+}
+
+.footerbtn2 {
+  border-radius: 0.6875rem;
+  background: #696DCA;
+  box-shadow: 10px 10px 4px 0px rgba(255, 255, 255, 0.25);
+}
+
+.circular-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+}
+
+.hidden-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background-color: #2196F3;
+  /* Checkbox fill color */
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.circular-checkbox:hover .checkmark {
+  opacity: 0.7;
+}
+
+.hidden-checkbox:checked+.checkmark {
+  opacity: 1;
 }

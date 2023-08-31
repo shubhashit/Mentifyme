@@ -2,12 +2,14 @@ import React from 'react'
 import x from '../assets/x.svg'
 import xwhite from '../assets/xwhite.svg'
 import googleLogo from '../assets/googleLogo.png'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
-    const dark = false;
+    const navigate = useNavigate();
+    const dark = true;
     return (
         <div className={`h-[100vh] w-[70vw] ${dark ? 'bg-black' : 'bg-white'} absolute right-0 top-0 pl-12`}>
-            <div className='relative flex justify-end '><img src={dark ? xwhite : x} className='m-4 cursor-pointer'  alt="" /></div>
+            <div className='relative flex justify-end '><img src={dark ? xwhite : x} className='m-4 cursor-pointer'  alt="" onClick={()=>{navigate("/")}} /></div>
             <div className='mt-12'>
 
                 <div className='text-5xl font-bold text-[#696DCA] mb-2'  >Login</div>
