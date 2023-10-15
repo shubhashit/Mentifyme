@@ -22,6 +22,7 @@ import CoachingName from './components/CoachingName';
 import Landingpage from './Landingpage';
 import Navbar from './components/Navbar';
 import Subjects from './components/Subjects';
+import PremiumPage from './components/PremiumPage';
 
 function App() {
   return (
@@ -29,13 +30,21 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Landingpage></Landingpage>} />
+          <Route exact path="/Premium" element={<PremiumPage></PremiumPage>} />
           <Route exact path="/testing" element={<><Navbar></Navbar><Subjects></Subjects></>} />
           <Route exact path="/login" element={<> <Navbar></Navbar> <Login></Login> </>} />
+          {/* <Route exact path="/login" element={<> <Navbar></Navbar> <LoginOTP></LoginOTP> </>} /> */}
           <Route exact path="/timetable/name" element={<> <Navbar></Navbar> <Name></Name> </>} />
           <Route exact path="/timetable/MobileNumber" element={<> <Navbar></Navbar> <MobileNumber></MobileNumber> </>} />
           <Route exact path="/timetable/ExamType" element={<> <Navbar></Navbar> <ExamType></ExamType> </>} />
           <Route exact path="/timetable/Class" element={<> <Navbar></Navbar> <Class></Class> </>} />
           <Route exact path="/timetable/CoachingName" element={<> <Navbar></Navbar> <CoachingName></CoachingName> </>} />
+          <Route exact path="/timetable/TypeOfperson" element={<> <Navbar></Navbar> <TypeOfperson></TypeOfperson> </>} />
+          <Route exact path="/timetable/WakeupTime" element={<> <Navbar></Navbar> <WakeupTime></WakeupTime> </>} />
+          <Route exact path="/timetable/SleepTime" element={<> <Navbar></Navbar> <SleepTime></SleepTime> </>} />
+          <Route exact path="/timetable/Schooltime" element={<> <Navbar></Navbar> <Schooltime></Schooltime> </>} />
+          <Route exact path="/timetable/CoachingTime" element={<> <Navbar></Navbar> <CoachingTime></CoachingTime> </>} />
+          <Route exact path="/afterlogin" element={<> <NavbarAfterLogin></NavbarAfterLogin> <AfterLogin></AfterLogin> </>} />
         </Routes>
       </Router>
       {/* <NavbarAfterLogin></NavbarAfterLogin>

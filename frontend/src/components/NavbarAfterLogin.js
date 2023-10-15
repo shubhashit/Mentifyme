@@ -5,7 +5,7 @@ import chevrondown from '../assets/chevrondown.svg'
 
 export default function NavbarAfterLogin() {
     return (
-        <div className='flex flex-row justify-between p-3 items-center'>
+        <div className='flex flex-row justify-between p-3 items-center shadow'>
             <div className='flex flex-row'>
                 <img src={logo} className='w-14 mr-2' alt="" />
                 <div>

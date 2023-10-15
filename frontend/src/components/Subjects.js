@@ -3,6 +3,8 @@ import '../index.css'
 import forwardArrow from '../assets/forwardArrow.png'
 import back from '../assets/arrow-left-square.svg'
 import forward from '../assets/arrow-right-square.svg'
+import SubjectsMathematics11 from './SubjectsMathematics11'
+import SubjectMathematics12 from './SubjectMathematics12'
 
 export default function Subjects() {
     return (
@@ -29,221 +31,15 @@ export default function Subjects() {
 
 
             <div className='text-lg  m-6'>Select your<span className='text-[#696DCA]'>Strogest chapters</span> among the following</div>
-            <div className='flex flex-row w-full justify-between pr-32 mb-6'>
-                <div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Sets , Relation & Function</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Complex Number</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Quadratic equation</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Sequence & series</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Binomial Relation</div>
-                    </div>
-                </div>
-                <div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Permutation & Combination</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Quadratic equation</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Trigonometry</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Statistics</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Straight Lines</div>
-                    </div>
-                </div>
-                <div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Circles</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Parabola</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Ellipse</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Hyperbola</div>
-                    </div>
-                </div>
-            </div>
+            <SubjectsMathematics11></SubjectsMathematics11>
             <div className='text-lg  m-6'>Select your<span className='text-[#696DCA]'>Avegrage chapters</span> among the following</div>
-            <div className='flex flex-row w-full justify-between pr-32'>
-                <div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Sets , Relation & Function</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Complex Number</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Quadratic equation</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Sequence & series</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Binomial Relation</div>
-                    </div>
-                </div>
-                <div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Permutation & Combination</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Quadratic equation</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Trigonometry</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Statistics</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Straight Lines</div>
-                    </div>
-                </div>
-                <div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Circles</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Parabola</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Ellipse</div>
-                    </div>
-                    <div className='flex flex-row items-center m-6'>
-                        <label class="circular-checkbox mr-2">
-                            <input type="checkbox" class="hidden-checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <div className='text-xl font-semibold'>Hyperbola</div>
-                    </div>
-                </div>
-            </div>
+            <SubjectsMathematics11></SubjectsMathematics11>
+            <div className='text-lg  m-6'>Disclamer<span className='text-[#FF0000]'>:Subjects which are not selected among both categories will be considered as weakest or havent studied yet.</span> </div>
 
-
+            <div className='text-lg  m-6'>Select your<span className='text-[#696DCA]'>Strogest chapters</span> among the following</div>
+            <SubjectMathematics12></SubjectMathematics12>
+            <div className='text-lg  m-6'>Select your<span className='text-[#696DCA]'>Avegrage chapters</span> among the following</div>
+            <SubjectMathematics12></SubjectMathematics12>
 
 
 

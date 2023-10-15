@@ -40,7 +40,7 @@ export default function CoachingName() {
             </div>
             <div className='m-6 w-[50vw] flex flex-row justify-between mt-10 h-12 '>
                 <button className='bg-[#696DCA] pr-4 pl-4 pt-1 pb-1 text-lg text-white rounded-sm mr-3 w-1/5 flex flex-row items-center' onClick={() => { navigate("/timetable/Class") }}> <img src={back} alt="" /> Previours</button>
-                <button className='bg-[#696DCA] pr-4 pl-4 pt-1 pb-1 text-lg text-white rounded-sm mr-3 w-1/5 flex flex-row justify-center items-center opacity-50'>Next <img src={forward} alt="" /></button>
+                <button className='bg-[#696DCA] pr-4 pl-4 pt-1 pb-1 text-lg text-white rounded-sm mr-3 w-1/5 flex flex-row justify-center items-center opacity-50' onClick={() => { navigate("/timetable/TypeOfperson") }}>Next <img src={forward} alt="" /></button>
             </div>
         </div>
     )

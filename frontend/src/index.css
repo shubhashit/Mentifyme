@@ -74,3 +74,11 @@ code {
 .hidden-checkbox:checked+.checkmark {
   opacity: 1;
 }
+
+.heroblur {
+  border-radius: 0.64913rem;
+  border: 1.039px solid #696DCA;
+  opacity: 0.89;
+  background: rgba(255, 255, 255, 0.30);
+  backdrop-filter: blur(13.501930236816406px);
+}
