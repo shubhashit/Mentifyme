@@ -7,7 +7,7 @@ import hero3 from '../assets/hero3.png'
 export default function Hero() {
     return (
         <div className='flex flex-col md:flex-row md:mb-12  md:mt-6 ' style={{ letterSpacing: "-1px" }}>
-            <div className='md:ml-6 md:w-[45%] m-4'>
+            <div className='md:ml-6 md:w-[40%] m-4'>
                 <div className='text-4xl md:text-4xl font-semibold md:font-bold mb-8 '>Get 1-on-1 Personalised Mentorship by <span className='text-[#696DCA]'>IITians & NEET</span> Toppers</div>
                 <div className='text-lg md:text-xl mb-5 md:mb-0 text-[#4B5262]'>Your personalized mentorship and support platform for  and  preparation<span className='text-[#696DCA]'>IIT JEE/NEET</span> and<span className='text-[#696DCA]'> Boards</span> preparation</div>
 
@@ -39,15 +39,15 @@ export default function Hero() {
 
 
 
-            <div className='m-6 relative hidden  w-[55%] md:flex justify-end'>
-                <video controls width="" height="" className='w-[90%] h-[80%] rounded-lg relative'>
+            <div className='m-6 relative hidden  w-[60%] h-fit md:flex justify-end'>
+                <video controls width="" height="" className='w-[90%] h-[50vh] rounded-lg relative '>
                     <source src="your-video-url.mp4" type="video/mp4" />
                 </video>
-                <div className='flex flex-row bg-white shadow-lg p-2 rounded-lg justify-around items-center absolute bottom-10 left-2 w-[40%] lg:w-[30%]'>
+                <div className='flex flex-row bg-white shadow-lg p-2 rounded-lg justify-around items-center absolute -bottom-10 left-2 w-[40%] lg:w-[30%]'>
                     <img src={hero1} className='mr-2 w-[3rem]' alt="" />
                     <div className='font-semibold text-center text-xs'>7 days Improvement <br /> Guarantee</div>
                 </div>
-                <div className='flex flex-row bg-white shadow-lg p-2 rounded-lg  justify-around items-center absolute bottom-8 right-0 w-[40%] lg:w-[30%]'>
+                <div className='flex flex-row bg-white shadow-lg p-2 rounded-lg  justify-around items-center absolute -bottom-8 right-0 w-[30%] lg:w-[30%]'>
                     <img src={hero2} className='mr-2 w-[3rem]' alt="" />
                     <div className='font-semibold text-center text-xs'>Expert Guidance</div>
                 </div>

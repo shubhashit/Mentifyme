@@ -9,7 +9,7 @@ export default function MentorCard(props) {
                   <source src="your-video-url.mp4" type="video/mp4" />
               </video>
               <div className='flex flex-col h-2/5 items-center justify-center bg-black'>
-                  <div className='text-2xl font-bold text-white m-4'>{props.name}</div>
+                  <div className='text-xl font-bold text-white m-4'>{props.name}</div>
                   <div className='text-lg font-semibold text-white m-4'>{props.college}</div>
                   <div className='text-sm text-[#696DCA] m-4'>View Profile</div>
               </div>

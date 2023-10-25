@@ -23,14 +23,18 @@ import Landingpage from './Landingpage';
 import Navbar from './components/Navbar';
 import Subjects from './components/Subjects';
 import PremiumPage from './components/PremiumPage';
+import BookYourCall from './components/BookYourCall';
+import Payment from './components/Payment';
 
 function App() {
   return (
-    <div className="">
+    <div className="lg:overflow-x-hidden">
       <Router>
         <Routes>
           <Route exact path="/" element={<Landingpage></Landingpage>} />
           <Route exact path="/Premium" element={<PremiumPage></PremiumPage>} />
+          <Route exact path="/BookYourCall" element={<BookYourCall></BookYourCall>} />
+          <Route exact path="/payment" element={<Payment></Payment>} />
           <Route exact path="/testing" element={<><Navbar></Navbar><Subjects></Subjects></>} />
           <Route exact path="/login" element={<> <Navbar></Navbar> <Login></Login> </>} />
           {/* <Route exact path="/login" element={<> <Navbar></Navbar> <LoginOTP></LoginOTP> </>} /> */}

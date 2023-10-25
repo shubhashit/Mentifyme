@@ -20,7 +20,7 @@ export default function Students() {
       }
       return (
             <>
-                  <div className='md:flex flex-col h-[100vh] justify-center items-center hidden '>
+                  <div className='md:flex flex-col h-fit justify-center items-center hidden '>
                         <div className='text-4xl font-semibold '>“Hear What Our Students Have to Say!"</div>
                         <div className='flex flex-row h-4/5 m-4'>
                               <StudentsCard

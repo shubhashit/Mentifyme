@@ -8,7 +8,7 @@ import MentorCardMin from './MentorCardMin'
 export default function Mentors() {
   return (
     <>
-    <div className='h-[100vh]  Mentor md:flex justify-center flex-col items-center hidden'>
+    <div className='h-fit  Mentor md:flex justify-center flex-col items-center hidden'>
           <div className='text-5xl font-bold text-white'>Amazing <span className='text-[#696DCA]'>Mentors</span> to Guide You</div>
             <div className='flex flex-row h-4/5 m-3'>
                 <MentorCard

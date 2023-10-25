@@ -1,0 +1,43 @@
+<div className='mt-4'>
+                            <div className='flex flex-row items-center'>
+                                <img src={rightsign} className='ml-3 w-[1rem] h-[1rem]' alt="" />
+                                <div className='ml-3 font-medium text-[0.5rem]'>Personal Mentorship By Top Experts</div>
+                            </div>
+                            <div className='flex flex-row items-center mt-3'>
+                                <img src={rightsign} className='ml-3 w-[1rem] h-[1rem]' alt="" />
+                                <div className='ml-3 font-medium text-[0.5rem]'>Weekly Performance Sessions
+                                </div>
+                            </div>
+                            <div className='flex flex-row items-center mt-3'>
+                                <img src={rightsign} className='ml-3 w-[1rem] h-[1rem]' alt="" />
+                                <div className='ml-3 font-medium text-[0.5rem] '>Paper attempting techniques
+                                </div>
+                            </div>
+                            <div className='flex flex-row items-center mt-3'>
+                                <img src={rightsign} className='ml-3 w-[1rem] h-[1rem]' alt="" />
+                                <div className='ml-3 font-medium text-[0.5rem] '>Rank Booster Sessions
+                                </div>
+                            </div>
+                            <div className='flex flex-row items-center mt-3'>
+                                <img src={rightsign} className='ml-3 w-[1rem] h-[1rem]' alt="" />
+                                <div className='ml-3 font-medium text-[0.5rem] '>Multiple Practice Tests & Exams
+
+                                </div>
+                            </div>
+                            <div className='flex flex-row items-center mt-3'>
+                                <img src={rightsign} className='ml-3 w-[1rem] h-[1rem]' alt="" />
+                                <div className='ml-3 font-medium text-[0.5rem] '>Short Notes By Mentors
+
+                                </div>
+                            </div>
+                            <div className='flex flex-row items-center mt-3'>
+                                <img src={rightsign} className='ml-3 w-[1rem] h-[1rem]' alt="" />
+                                <div className='ml-3 font-medium text-[0.5rem] '>Access to our resources system
+                                </div>
+                            </div>
+                            <div className='flex flex-row items-center mt-3'>
+                                <img src={rightsign} className='ml-3 w-[1rem] h-[1rem]' alt="" />
+                                <div className='ml-3 font-medium text-[0.5rem] '>All Unlimited Services
+                                </div>
+                            </div>
+                        </div>
