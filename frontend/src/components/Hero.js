@@ -3,10 +3,18 @@ import clipboardcheck from '../assets/clipboard-check.png'
 import hero1 from '../assets/hero1.png'
 import hero2 from '../assets/hero2.png'
 import hero3 from '../assets/hero3.png'
+import { useNavigate } from 'react-router-dom'
 
 export default function Hero() {
+    const navigate = useNavigate();
+    function goToBookCallPage(){
+        navigate("/BookYourCall")
+    }
+    function goToPremiumPage(){
+        navigate("/Premium")
+    }
     return (
-        <div className='flex flex-col md:flex-row md:mb-12  md:mt-6 ' style={{ letterSpacing: "-1px" }}>
+        <div className='flex flex-col md:flex-row md:mb-12  md:mt-6 ' style={{letterSpacing: "-1px" }}>
             <div className='md:ml-6 md:w-[40%] m-4'>
                 <div className='text-4xl md:text-4xl font-semibold md:font-bold mb-8 '>Get 1-on-1 Personalised Mentorship by <span className='text-[#696DCA]'>IITians & NEET</span> Toppers</div>
                 <div className='text-lg md:text-xl mb-5 md:mb-0 text-[#4B5262]'>Your personalized mentorship and support platform for  and  preparation<span className='text-[#696DCA]'>IIT JEE/NEET</span> and<span className='text-[#696DCA]'> Boards</span> preparation</div>
@@ -18,8 +26,8 @@ export default function Hero() {
                 </div>
 
                 <div className='mt-4  flex flex-row justify-center'>
-                    <button className='bg-[#696DCA] p-2 text-base text-white rounded-lg mr-3 w-[49%]'>Book 1 on 1 call</button>
-                    <button className='bg-[white] text-black p-2 text-base font-semibold border border-black rounded-lg md:mr-3 w-[49%]'>Explore Premium</button>
+                    <button className='bg-[#696DCA] p-2 text-base text-white rounded-lg mr-3 w-[49%]' onClick={goToBookCallPage}>Book 1 on 1 call</button>
+                    <button className='bg-[white] text-black p-2 text-base font-semibold border border-black rounded-lg md:mr-3 w-[49%]' onClick={goToPremiumPage}>Explore Premium</button>
                 </div>
                 <div className='mt-16 md:mt-6 ml-5 md:ml-0  '>
                     <div className='flex flex-row mb-3'>
