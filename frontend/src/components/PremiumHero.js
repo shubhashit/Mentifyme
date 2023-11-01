@@ -3,6 +3,8 @@ import rightsign from '../assets/rightsign.png'
 import wrongsign from '../assets/wrongsign.png'
 import rightsignwhite from '../assets/rightsignwhite.png'
 import wrongsignwhite from '../assets/wrongsignwhite.png'
+import rightclick from '../assets/rightclick.png'
+import leftclick from '../assets/leftclick.png'
 
 export default function PremiumHero() {
     return (
@@ -339,6 +341,13 @@ export default function PremiumHero() {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='flex flex-row justify-center items-center mb-5 md:hidden'>
+                <img src={leftclick} className='mr-10' alt="" />
+                <div className='w-4 h-4 rounded-full bg-[#696DCA] mr-2'></div>
+                <div className='w-4 h-4 rounded-full bg-[#D9D9D9] mr-2'></div>
+                <div className='w-4 h-4 rounded-full bg-[#D9D9D9] mr-2'></div>
+                <img src={rightclick} className='ml-10' alt="" />
             </div>
         </div >
     )

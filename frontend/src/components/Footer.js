@@ -37,21 +37,21 @@ export default function Footer() {
                             <div className='text-sm text-[#696DCA]'>Mentoring for better india</div>
                         </div>
                     </div>
-                    <div className='flex flex-wrap mt-4'>Mentifyme is the best and india’s first AI based mentorship and timetable tracking platform with expertise of Top IITians/AIIMSians</div>
+                    <div className='flex flex-wrap mt-4 text-sm'>Mentifyme is the best and india’s first AI based mentorship and timetable tracking platform with expertise of Top IITians/AIIMSians</div>
                 </div>
-                <div className='w-1/5 m-6'>
+                <div className='w-1/5 m-6 text-sm'>
                     <div className='font-bold'>QUICK LINKS</div>
                     <div className='text-[#878787] mt-5'>Connect with mentor @99</div>
                     <div className='text-[#878787] mt-5'>Time table</div>
                     <div className='text-[#878787] mt-5'>download App</div>
                     <div className='text-[#878787] mt-5'>Join Mentifyme as mentor</div>
                 </div>
-                <div className='w-1/5 m-6'>
-                    <div className='font-bold'>QUICK LINKS</div>
-                    <div className='text-[#878787] mt-5'>Connect with mentor @99</div>
-                    <div className='text-[#878787] mt-5'>Time table</div>
-                    <div className='text-[#878787] mt-5'>download App</div>
-                    <div className='text-[#878787] mt-5'>Join Mentifyme as mentor</div>
+                <div className='w-1/5 m-6 text-sm'>
+                    <div className='font-bold'>COMPANY</div>
+                    <div className='text-[#878787] mt-5'>About us</div>
+                    <div className='text-[#878787] mt-5'>Privacy Policy</div>
+                    <div className='text-[#878787] mt-5'>Terms & Conditions</div>
+                    <div className='text-[#878787] mt-5'>Contact us</div>
                 </div>
                 <div className='w-1/5 m-6 flex flex-col justify-between'>
                     <div className='font-bold'>CONTACT US</div>
@@ -105,7 +105,7 @@ export default function Footer() {
 
                     <div ml-4>
                         <div className='text-[#98A2B3] mb-3'>COMPANY</div>
-                        <div className='mt-6'>About ut</div>
+                        <div className='mt-6'>About us</div>
                         <div className='mt-6'>Privacy Policy</div>
                         <div className='mt-6'>Terms & Condition</div>
                     </div>
