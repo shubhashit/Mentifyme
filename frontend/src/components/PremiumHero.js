@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import rightsign from '../assets/rightsign.png'
 import wrongsign from '../assets/wrongsign.png'
 import rightsignwhite from '../assets/rightsignwhite.png'
@@ -7,6 +7,36 @@ import rightclick from '../assets/rightclick.png'
 import leftclick from '../assets/leftclick.png'
 
 export default function PremiumHero() {
+    const [Page , setPage] = useState(2);
+    function Onrightclick (){
+        console.log(document.getElementById("MainPremiumBox").offsetWidth)
+        console.log(Page);
+        if(Page == 2){
+            document.getElementById("MainPremiumBox").classList.remove("-translate-x-[100vw]")
+            
+            document.getElementById("MainPremiumBox").classList.add("-translate-x-[200vw]");
+            setPage(3);
+        }
+        if(Page == 1){
+            document.getElementById("MainPremiumBox").classList.remove("-translate-x-[0vw]")
+            document.getElementById("MainPremiumBox").classList.add("-translate-x-[100vw]");
+            setPage(2);
+        }
+    }
+    function OnleftClick(){
+        console.log(Page)
+        if(Page == 3){
+            document.getElementById("MainPremiumBox").classList.remove("-translate-x-[200vw]")
+            document.getElementById("MainPremiumBox").classList.add("-translate-x-[100vw]");
+            setPage(2);
+            
+        }
+        if(Page == 2){
+            document.getElementById("MainPremiumBox").classList.remove("-translate-x-[100vw]")
+            document.getElementById("MainPremiumBox").classList.add("-translate-x-[0vw]");
+            setPage(1);
+        }
+    }
     return (
         <div className='w-full  md:p-0'>
             <div className='text-3xl md:text-5xl font-semibold text-start md:text-center m-auto mt-4 p-2'>  "India's Premier Mentorship Platform for IIT JEE and NEET"</div>
@@ -175,7 +205,7 @@ export default function PremiumHero() {
 
 
             {/* for short screen */}
-            <div className='flex md:flex-row justify-between  mt-8 mb-12 w-fit md:hidden -translate-x-[100vw]'>
+            <div id='MainPremiumBox' className='flex md:flex-row justify-between  mt-8 mb-12 w-fit md:hidden       -translate-x-[100vw]'>
                 <div className='w-[100vw] flex items-center justify-center'>
                     <div className='border border-[#D9D9D9] rounded w-[80%] p-2 md:p-6 '>
                         <div className='h-fit flex flex-col justify-between'>
@@ -343,11 +373,11 @@ export default function PremiumHero() {
                 </div>
             </div>
             <div className='flex flex-row justify-center items-center mb-5 md:hidden'>
-                <img src={leftclick} className='mr-10' alt="" />
-                <div className='w-4 h-4 rounded-full bg-[#696DCA] mr-2'></div>
-                <div className='w-4 h-4 rounded-full bg-[#D9D9D9] mr-2'></div>
-                <div className='w-4 h-4 rounded-full bg-[#D9D9D9] mr-2'></div>
-                <img src={rightclick} className='ml-10' alt="" />
+                <img src={leftclick} className='mr-10' alt="" onClick={OnleftClick} />
+                <div className={`w-4 h-4 rounded-full ${Page == 1 ? "bg-[#696DCA]" :"bg-[#D9D9D9]" }  mr-2`}></div>
+                <div className={`w-4 h-4 rounded-full ${Page == 2 ? "bg-[#696DCA]" :"bg-[#D9D9D9]" }  mr-2`}></div>
+                <div className={`w-4 h-4 rounded-full ${Page == 3 ? "bg-[#696DCA]" :"bg-[#D9D9D9]" }  mr-2`}></div>
+                <img src={rightclick} className='ml-10' alt="" onClick={Onrightclick} />
             </div>
         </div >
     )

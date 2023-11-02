@@ -8,6 +8,13 @@ export default function Navbar() {
     const [DropDown , setDropDown] = useState(false)
     const navigate = useNavigate();
 
+    function ToPremium(){
+        navigate("/Premium");
+    }
+    function ToBookcall(){
+        navigate("/BookYourCall");
+    }
+
     function dropdownmenu (){
         if(DropDown){
             setDropDown(false);
@@ -43,9 +50,9 @@ export default function Navbar() {
                 <div className='bg-white w-[70%] h-[100dvh] absolute right-0 top-0 z-20 pt-12'>
                     <img src={navbarcross} alt="" className='h-6 w-6 absolute top-5 right-5' onClick={dropdownmenu} />
                     <div className='w-full flex flex-col justify-center '>
-                        <div className='text-lg font-medium m-6 text-center text-[#696DCA]'>Home</div>
-                        <div className='text-lg font-medium m-6 text-center '>Premium</div>
-                        <div className='text-lg font-medium m-6 text-center '>Book call</div>
+                        <div className='text-lg font-medium m-6 text-center text-[#696DCA]' >Home</div>
+                        <div className='text-lg font-medium m-6 text-center' onClick={ToPremium}>Premium</div>
+                        <div className='text-lg font-medium m-6 text-center ' onClick={ToBookcall}>Book call</div>
                         <div className='text-lg font-medium m-6 text-center '>Contact us</div>
                     </div>
                     <div className='flex items-center justify-center mt-4'>

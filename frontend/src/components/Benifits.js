@@ -29,7 +29,7 @@ export default function Benifits() {
                 <div className='ml-5 md:ml-0'>
                     <div className='flex flex-row items-center'>
                         <div><img src={two} className='block md:hidden ml-6 m-3 w-12 mr-6' alt="" /></div>
-                        <div className='text-2xl font-semibold text-white mb-2'><span className='text-[#696DCA]'>Strategies Your Preparation with </span>Experts</div>
+                        <div className='text-2xl font-semibold text-white mb-2'>Strategies Your Preparation with <span className='text-[#696DCA]'>Experts</span> </div>
                     </div>
                     <div className='flex flex-row items-center mb-2'><img src={handArrow} className='mr-3' alt="" /> 30 min video call with mentor from top IITs/AIIMS</div>
                     <div className='flex flex-row items-center mb-2'><img src={handArrow} className='mr-3' alt="" />Detailed analysis of your level of preparation.</div>
