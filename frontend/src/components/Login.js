@@ -1,38 +1,48 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import x from '../assets/x.svg'
 import xwhite from '../assets/xwhite.svg'
 import googleLogo from '../assets/googleLogo.png'
 import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
+
+
     const navigate = useNavigate();
     const dark = false;
     const InputNum = useRef();
     const OnLogin = async (e) => {
-        console.log(e.target);
         console.log('login')
         console.log(InputNum.current.value);
-        let headersList = {
-            "Accept": "*/*",
-            "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-            "Content-Type": "application/json"
+        try {
+            let headersList = {
+                "Accept": "*/*",
+                // "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+                "Content-Type": "application/json"
+            }
+
+            let bodyContent = JSON.stringify({
+                "phone_number": "9425305980",
+                "password": "i will do it"
+            });
+
+            let response = await fetch("http://127.0.0.1:8000/api/register/", {
+                method: "POST",
+                body: bodyContent,
+                headers: headersList
+            });
+
+            let data = await response.json();
+            console.log(data);
+
+
+        } catch (error) {
+            console.log(error)
         }
 
-        let bodyContent = JSON.stringify({
-            "PhoneNumber": `${InputNum.current.value}`,
-            "Password": "123455"
-        });
-
-        let response = await fetch("https://www.thunderclient.com/welcome", {
-            method: "POST",
-            body: bodyContent,
-            headers: headersList
-        });
-
-        let data = await response.text();
-        console.log(data);
-
     }
+
+
+
     return (
         <div className={`h-[100vh] w-[70vw] ${dark ? 'bg-black' : 'bg-white'} absolute right-0 top-0 pl-12`}>
             <div className='relative flex justify-end '><img src={dark ? xwhite : x} className='m-4 cursor-pointer' alt="" onClick={() => { navigate("/") }} /></div>

@@ -3,7 +3,8 @@ import rightclick from '../assets/rightclick.png'
 import leftclick from '../assets/leftclick.png'
 import StudentsCard from './StudentsCard'
 
-export default function Students() {
+export default function Students(props) {
+      console.log(props)
       const OnLeftClick = ()=>{
             console.log('left click')
             document.getElementById('div1').classList.remove("hidden")
