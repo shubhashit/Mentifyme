@@ -19,20 +19,21 @@ export default function Landingpage() {
 
       let headersList = {
         "Accept": "*/*",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        // "ngrok-skip-browser-warning": "69420",
       }
 
-      let response = await fetch("http://127.0.0.1:8000/api/index/", {
+      let response = await fetch("https://fa67-2401-4900-73e4-ae27-88ba-e20e-3377-af33.ngrok-free.app/api/index/", {
         method: "GET",
         headers: headersList
       });
 
-      let data = await response.json(); // resopnse to josn format
+      let data = await response.text(); // resopnse to josn format
       setData(data)
       console.log(data);
-      console.log(data.banner)
+      // console.log(data.banner)
     }
-    fetchdata();
+    // fetchdata();
   }, []); 
   console.log(data)
   return (
