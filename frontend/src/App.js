@@ -28,6 +28,7 @@ import Payment from './components/Payment';
 import { useState } from 'react';
 import LoginPassword from './components/LoginPassword';
 import Profile from './components/Profile';
+import Login2 from './components/Login2';
 
 function App() {
   const[phone_number , setPhone_number] = useState();
@@ -43,7 +44,8 @@ function App() {
           <Route exact path="/BookYourCall" element={<BookYourCall></BookYourCall>} />
           <Route exact path="/payment" element={<Payment></Payment>} />
           <Route exact path="/testing" element={<><Navbar></Navbar><Subjects></Subjects></>} />
-          <Route exact path="/login" element={<> <Navbar></Navbar> <Login setPhone_number={setPhone_number}></Login> </>} />
+          <Route exact path="/signup" element={<> <Navbar></Navbar> <Login setPhone_number={setPhone_number}></Login> </>} />
+          <Route exact path="/login" element={<> <Navbar></Navbar> <Login2 setPhone_number={setPhone_number}></Login2> </>} />
           {/* <Route exact path="/LoginOTP" element={<> <Navbar></Navbar> <LoginOTP day="day" phone_number={phone_number} setotp={setotp}></LoginOTP> </>} /> */}
           {/* <Route exact path="/LoginPassword" element={<> <Navbar></Navbar> <LoginPassword phone_number={phone_number} otp={otp}></LoginPassword> </>} /> */}
           <Route exact path="/timetable/name" element={<> <Navbar></Navbar> <Name></Name> </>} />

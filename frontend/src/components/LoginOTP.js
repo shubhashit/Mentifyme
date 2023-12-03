@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import x from '../assets/x.svg'
 import xwhite from '../assets/xwhite.svg'
-import googleLogo from '../assets/googleLogo.png'
 import { useNavigate } from 'react-router-dom';
 
 export default function Login(props) {
@@ -9,10 +8,6 @@ export default function Login(props) {
     const dark = false;
     const InputNumber = useRef();
     const OTP = useRef();
-    console.log(props.phone_number)
-    console.log(InputNumber.current)
-    console.log(props)
-    console.log(props.day)
     const OnLoginOTP = async (e) => {
 
         console.log(InputNumber.current.value)
@@ -47,9 +42,12 @@ export default function Login(props) {
         }
 
     }
+    function Tohome(){
+        navigate('/')
+    }
     return (
         <div className={`h-[100vh] w-[70vw] ${dark ? 'bg-black' : 'bg-white'} absolute right-0 top-0 pl-12`}>
-            <div className='relative flex justify-end '><img src={dark ? xwhite : x} className='m-4 cursor-pointer' alt="" /></div>
+            <div className='relative flex justify-end ' onClick={Tohome}><img src={dark ? xwhite : x} className='m-4 cursor-pointer' alt="" /></div>
             <div className='mt-12'>
 
                 <div className='text-5xl font-bold text-[#696DCA] mb-2'  >Enter OTP</div>
