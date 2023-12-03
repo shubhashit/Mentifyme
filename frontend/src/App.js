@@ -27,6 +27,7 @@ import BookYourCall from './components/BookYourCall';
 import Payment from './components/Payment';
 import { useState } from 'react';
 import LoginPassword from './components/LoginPassword';
+import Profile from './components/Profile';
 
 function App() {
   const[phone_number , setPhone_number] = useState();
@@ -56,6 +57,7 @@ function App() {
           <Route exact path="/timetable/Schooltime" element={<> <Navbar></Navbar> <Schooltime></Schooltime> </>} />
           <Route exact path="/timetable/CoachingTime" element={<> <Navbar></Navbar> <CoachingTime></CoachingTime> </>} />
           <Route exact path="/afterlogin" element={<> <NavbarAfterLogin></NavbarAfterLogin> <AfterLogin></AfterLogin> </>} />
+          <Route exact path="/Profile" element={<> <NavbarAfterLogin></NavbarAfterLogin> <Profile></Profile> </>} />
         </Routes>
       </Router>
       {/* <NavbarAfterLogin></NavbarAfterLogin>

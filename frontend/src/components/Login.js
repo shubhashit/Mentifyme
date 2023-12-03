@@ -5,12 +5,14 @@ import googleLogo from '../assets/googleLogo.png'
 import { useNavigate } from 'react-router-dom'
 import LoginOTP from './LoginOTP'
 import LoginPassword from './LoginPassword'
+import axios from 'axios'
 
 export default function Login(props) {
 
     // const baseurl = process.env.REACT_APP_BASE_URL;
     // console.log(baseurl);
     const [page , setpage] = useState(1);
+    const [phone_number , setPhone_number] = useState();
     const navigate = useNavigate();
     const dark = false;
     const InputNum = useRef();
@@ -19,26 +21,38 @@ export default function Login(props) {
         console.log(InputNum.current.value);
         const number = InputNum.current.value;
         props.setPhone_number(number)
+        setPhone_number(number);
         try {
-            let headersList = {
-                "Accept": "*/*",
-                "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-                "Content-Type": "application/json",
-                // 'X-CSRFToken': getCookie('csrftoken'),
-            }
+            // let headersList = {
+            //     "Accept": "*/*",
+            //     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+            //     "Content-Type": "application/json",
+            //     // 'X-CSRFToken': getCookie('csrftoken'),
+            // }
             let bodyContent = JSON.stringify({
                 "phone_number": number
             });
 
-            let response = await fetch("https://fa67-2401-4900-73e4-ae27-88ba-e20e-3377-af33.ngrok-free.app/api/get-otp/", {
-                method: "POST",
-                body: bodyContent,
-                headers: headersList
-            }); 
+            // let response = await fetch("https://fa67-2401-4900-73e4-ae27-88ba-e20e-3377-af33.ngrok-free.app/api/get-otp/", {
+            //     method: "POST",
+            //     body: bodyContent,
+            //     headers: headersList
+            // }); 
 
 
-            let data = await response.json();
-            console.log(data);
+            // let data = await response.json();
+            // console.log(data);
+            let postData = {
+                "phone_number"  : number, 
+            }
+            const url = 'https://5160-2401-4900-3e38-60ff-bcbc-c8de-f7f4-6308.ngrok-free.app/api/get-otp/';
+
+            // Making the POST request using Axios
+            const response = await axios.post(url, postData);
+            // 'http://localhost:8000/set_session_variable/', {}, { withCredentials: true }
+
+            // Handle the response as needed
+            console.log('Response:', response.data);
            setpage(2);
 
         } catch (error) {
@@ -68,7 +82,7 @@ export default function Login(props) {
                     <div className={`text-lg font-semibold ${dark ? "text-white" : "text-black"}`}>Having trouble please contact <span className='text-[#696DCA]'>helpansrcoach@learn.com</span> for further support  into</div>
                 </div>
             </div> : <></>}
-            {page == 2 ? <LoginOTP setpage={setpage} ></LoginOTP> : <></>}
+            {page == 2 ? <LoginOTP setpage={setpage} phone_number={phone_number} ></LoginOTP> : <></>}
             {page == 3 ? <LoginPassword></LoginPassword> : <></>}
         </>
     )
