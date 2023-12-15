@@ -6,7 +6,7 @@ import tablericonbook1 from '../assets/tabler-icon-book (1).png'
 
 export default function Past() {
     return (
-        <div className='w-2/4 m-4 h-fit'>
+        <div className='w-full m-4 h-fit'>
             <div className='flex flex-row items-center'>
                 <div><img src={tablericonbook1} alt="" /></div>
                 <div className='text-xl font-medium ml-3'>MY Sessions</div>

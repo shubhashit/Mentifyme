@@ -13,6 +13,7 @@ export default function Login(props) {
     // console.log(baseurl);
     const [page , setpage] = useState(1);
     const [phone_number , setPhone_number] = useState();
+    const[otp , setopt] = useState();
     const navigate = useNavigate();
     const dark = false;
     const InputNum = useRef();
@@ -82,8 +83,8 @@ export default function Login(props) {
                     <div className={`text-lg font-semibold ${dark ? "text-white" : "text-black"}`}>Having trouble please contact <span className='text-[#696DCA]'>helpansrcoach@learn.com</span> for further support  into</div>
                 </div>
             </div> : <></>}
-            {page == 2 ? <LoginOTP setpage={setpage} phone_number={phone_number} ></LoginOTP> : <></>}
-            {page == 3 ? <LoginPassword></LoginPassword> : <></>}
+            {page == 2 ? <LoginOTP setpage={setpage} phone_number={phone_number} setopt={setopt} ></LoginOTP> : <></>}
+            {page == 3 ? <LoginPassword phone_number={phone_number} otp={otp}></LoginPassword> : <></>}
         </>
     )
 }

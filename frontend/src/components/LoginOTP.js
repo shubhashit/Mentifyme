@@ -13,6 +13,7 @@ export default function Login(props) {
         console.log(InputNumber.current.value)
         console.log(OTP.current.value)
         const otp = OTP.current.value;
+        props.setopt(otp);
         console.log(props)
         try {
             
@@ -40,6 +41,7 @@ export default function Login(props) {
         } catch (error) {
             console.log(error)
         }
+        props.setpage(3)
 
     }
     function Tohome(){

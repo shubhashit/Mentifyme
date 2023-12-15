@@ -24,7 +24,7 @@ export default function LoginPassword(props) {
             let bodyContent = JSON.stringify({
                 "phone_number": props.phone_number,
                 "otp": props.otp,
-                 "password": password 
+                "password": password 
             });
 
             let response = await fetch("https://fa67-2401-4900-73e4-ae27-88ba-e20e-3377-af33.ngrok-free.app/api/register/", {
@@ -35,7 +35,7 @@ export default function LoginPassword(props) {
 
             let data = await response.json();
             console.log(data);
-
+            navigate("/")
             
         } catch (error) {
             console.log(error)

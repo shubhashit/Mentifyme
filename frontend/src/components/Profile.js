@@ -13,11 +13,12 @@ import Upcoming from './Upcoming'
 import Past from './Past'
 import Bookcall from './Bookcall'
 import Rewards from './Rewards'
+import Session from './Session'
 
 export default function Profile() {
     return (
-        <div className='w-full flex flex-row '>
-            <div className='w-1/4 bg-[#D9D9D926]'>
+        <div className='w-full flex md:flex-row flex-col'>
+            <div className='w-1/4 bg-[#D9D9D926] hidden md:block'>
                 <div className='flex flex-col items-start w-fit m-auto'>
 
                     <div className='flex flex-row mt-10'>
@@ -38,11 +39,12 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
+            <Session></Session>
             {/* <Upcoming></Upcoming> */}
             {/* <Past></Past> */}
             {/* <Bookcall></Bookcall> */}
-            <Rewards></Rewards>
-            <div className='w-1/4 bg-[#D9D9D926] flex flex-col items-center h-fit'>
+            {/* <Rewards></Rewards> */}
+            <div className='md:w-1/4 bg-[#D9D9D926] flex flex-col items-center h-fit'>
                 <div className='font-bold text-lg mt-8'>Upcoming Events</div>
                 <div><img src={upcomingEvent} alt="" /></div>
                 <div className=' text-lg'>How to make Chemistry a Strong Zone</div>

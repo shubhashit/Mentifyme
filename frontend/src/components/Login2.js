@@ -12,11 +12,34 @@ export default function Login2() {
     const dark = false;
     const InputNum = useRef();
     const password = useRef();
-    function OnLogin(){
+    async function OnLogin(){
         console.log(InputNum.current.value)
         console.log(password.current.value)
+        let num = InputNum.current.value;
+        let password = password.current.value;
+        let headersList = {
+            "Accept": "*/*",
+            "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+            "Content-Type": "application/json"
+        }
+
+        let bodyContent = JSON.stringify({
+            "phone_number": num,
+            "password": password
+        });
+
+        let response = await fetch("https://04de-2401-4900-73f6-f125-dc6e-48d9-32e-21e.ngrok-free.app/api/login/", {
+            method: "POST",
+            body: bodyContent,
+            headers: headersList
+        });
+
+        let data = await response.text();
+        console.log(data);
     }
-    function Tosignup(){
+    async function Tosignup(){
+        
+
         navigate('/signup')
     }
   return (

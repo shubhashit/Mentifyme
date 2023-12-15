@@ -7,7 +7,7 @@ import tablericonbook1 from '../assets/tabler-icon-book (1).png'
 
 export default function Upcoming() {
   return (
-      <div className='w-2/4 m-4 h-fit'>
+      <div className='w-full md:m-4 h-fit'>
           <div className='flex flex-row items-center'>
               <div><img src={tablericonbook1} alt="" /></div>
               <div className='text-xl font-medium ml-3'>MY Sessions</div>
@@ -18,7 +18,7 @@ export default function Upcoming() {
                   <div className='font-medium text-base ml-4'>Past</div>
               </div>
           </div>
-          <div className='flex flex-col mt-6 border border-[#696DCA] rounded-lg  w-[70%]'>
+          <div className='flex flex-col mt-6 border border-[#696DCA] rounded-lg  md:w-[70%] w-[90%]'>
               <div className='h-4 rounded-t-lg bg-[#696DCA]'></div>
               <div className='flex flex-col pl-4 pr-4 mt-3'>
 
