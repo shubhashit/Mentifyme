@@ -30,23 +30,23 @@ export default function Footer() {
 
             <div className='text-white md:flex flex-row justify-between mt-20 hidden'>
                 <div className='w-1/5 m-6'>
-                    <div className='flex flex-row'>
-                        <img src={logo} className='w-14 mr-2' alt="" />
+                    <div className='flex flex-row items-center'>
+                        <img src={logo} className='w-16 h-16 mr-2' alt="" />
                         <div>
-                            <div className='text-4xl text-[#696DCA]'>Mentifyme</div>
-                            <div className='text-sm text-[#696DCA]'>Mentoring for better india</div>
+                            <div className='text-[42px] text-[#696DCA]'>Mentifyme</div>
+                            <div className='text-[14px] text-[#696DCA]'>Mentoring for better india</div>
                         </div>
                     </div>
-                    <div className='flex flex-wrap mt-4 text-sm'>Mentifyme is the best and india’s first AI based mentorship and timetable tracking platform with expertise of Top IITians/AIIMSians</div>
+                    <div className='flex flex-wrap mt-4 text-xl font-normal'>Mentifyme is the best and india’s first AI based mentorship and timetable tracking platform with expertise of Top IITians/AIIMSians</div>
                 </div>
-                <div className='w-1/5 m-6 text-sm'>
+                <div className='w-1/5 m-6 text-xl'>
                     <div className='font-bold'>QUICK LINKS</div>
                     <div className='text-[#878787] mt-5'>Connect with mentor @99</div>
                     <div className='text-[#878787] mt-5'>Time table</div>
                     <div className='text-[#878787] mt-5'>download App</div>
                     <div className='text-[#878787] mt-5'>Join Mentifyme as mentor</div>
                 </div>
-                <div className='w-1/5 m-6 text-sm'>
+                <div className='w-1/5 m-6 text-xl'>
                     <div className='font-bold'>COMPANY</div>
                     <div className='text-[#878787] mt-5'>About us</div>
                     <div className='text-[#878787] mt-5'>Privacy Policy</div>
@@ -79,19 +79,19 @@ export default function Footer() {
 
 
             <div className='md:hidden p-6'>
-                <div className='flex flex-row'>
-                    <img src={logo} className='w-14 mr-2' alt="" />
+                <div className='flex flex-row items-center'>
+                    <img src={logo} className='w-8 h-8 mr-2' alt="" />
                     <div>
-                        <div className='text-4xl text-[#696DCA]'>Mentifyme</div>
-                        <div className='text-sm text-[#696DCA]'>Mentoring for better india</div>
+                        <div className='text-base text-[#696DCA]'>Mentifyme</div>
+                        <div className='text-[6px] text-[#696DCA]'>Mentoring for better india</div>
                     </div>
                 </div>
 
-                <div className='text-white text-2xl mt-4'>
+                <div className='text-white text-[14px] mt-4'>
                     Mentifyme is the best and india's first AI based mentorship and timetable tracking platform with expertise of Top IITians/AIIMSians.
                 </div>
 
-                <div className='text-white text-2xl font-medium mt-8 grid grid-cols-2'>
+                <div className='text-white text-[14px] font-medium mt-8 grid grid-cols-2'>
                     <div>
                         <div className='text-[#98A2B3] mb-3'>QUICK LINKS</div>
                         <div className='mt-6'>Connect with Mentor</div>
@@ -112,24 +112,24 @@ export default function Footer() {
 
                 </div>
 
-                <div className='text-white mt-4'>
-                    <div className='text-[#98A2B3] mb-3 text-3xl'>CONTACT US</div>
+                <div className='text-white mt-4 text-[14px]'>
+                    <div className='text-[#98A2B3] mb-3 text-[14px]'>CONTACT US</div>
                     <div className='mt-4 flex flex-row' >
                         <img src={mail} alt="" />
-                        <div className='ml-4 text-lg'>mentifyme@gmail.com</div>
+                        <div className='ml-4 '>mentifyme@gmail.com</div>
                     </div>
                     <div className='mt-4  flex flex-row'>
                         <img src={phone} alt="" />
-                        <div className='ml-4 text-lg'>+91-7667102054</div>
+                        <div className='ml-4 '>+91-7667102054</div>
                     </div>
                 </div>
 
                 <div className='flex flex-row mt-4'>
-                    <img src={facebook} className='w-8 mr-3' alt="" />
-                    <img src={linkedin} className='w-8 mr-3' alt="" />
-                    <img src={twitter} className='w-8 mr-3' alt="" />
-                    <img src={instagram} className='w-8 mr-3' alt="" />
-                    <img src={youtube} className='w-8 mr-3' alt="" />
+                    <img src={facebook} className='w-6 mr-3' alt="" />
+                    <img src={linkedin} className='w-6 mr-3' alt="" />
+                    <img src={twitter} className='w-6 mr-3' alt="" />
+                    <img src={instagram} className='w-6 mr-3' alt="" />
+                    <img src={youtube} className='w-6 mr-3' alt="" />
                 </div>
             </div>
 
@@ -137,7 +137,7 @@ export default function Footer() {
 
 
             <div className='w-full border-t-2 border-t-[#878787] text-center'>
-                <div className='text-white font-semibold text-lg mt-4 mb-4'>Copyright © 2023 <span className='text-[#696DCA]'>Mentifyme</span></div>
+                <div className='text-white font-semibold text-[14px] md:text-[24px] mt-4 mb-4'>Copyright © 2023 <span className='text-[#696DCA]'>Mentifyme</span> <span className='text-[#6B757E]'>All rights reserved</span></div>
             </div>
         </div>
     )

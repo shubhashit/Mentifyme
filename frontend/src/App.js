@@ -25,15 +25,32 @@ import Subjects from './components/Subjects';
 import PremiumPage from './components/PremiumPage';
 import BookYourCall from './components/BookYourCall';
 import Payment from './components/Payment';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import LoginPassword from './components/LoginPassword';
 import Profile from './components/Profile';
 import Login2 from './components/Login2';
+import UserContext from './components/context/UserContext';
 
 function App() {
+  const {user} = useContext(UserContext);
+  console.log(user);
+  const url = process.env.REACT_APP_BASE_URL;
+  console.log(url)
   const[phone_number , setPhone_number] = useState();
-  const[otp , setotp] = useState(2);
   console.log(phone_number)
+
+
+  // const ProtectedRoute = ({ children }) => {
+  //   if (currentUser === null) {
+  //     console.log('navigation to login page');
+  //     return (<Navigate to="/signin"></Navigate>)
+  //   }
+  //   return children
+  // }
+
+
+
+
   return (
     
     <div className="lg:overflow-x-hidden">

@@ -5,8 +5,13 @@ import whymentify3 from '../assets/bookcall/whymentify3.png'
 import whymentify4 from '../assets/bookcall/whymentify4.png'
 import rightclick from '../assets/rightclick.png'
 import leftclick from '../assets/leftclick.png'
+import { useNavigate } from 'react-router-dom'
 
 export default function BookWhyMentify(props) {
+    const navigate = useNavigate();
+    function topayment() {
+        navigate('/payment')
+    }
     return (
         <div className='flex flex-col items-center mt-8 overflow-hidden'>
             <div className='text-[#696DCA] text-xs font-normal'>WHAT WE PROVIDE</div>
@@ -64,7 +69,7 @@ export default function BookWhyMentify(props) {
                 <div className='w-4 h-4 rounded-full bg-[#D9D9D9] mr-2'></div>
                 <img src={rightclick} className='ml-10' alt=""  />
             </div>
-            <div className='text-xs md:text-base font-medium text-white pt-3 pb-3 pl-6 pr-6 bg-[#696DCA] w-[13rem] text-center rounded mt-4 '><button>Book call ₹399 only </button></div>
+            <div className='text-xs md:text-base font-medium text-white pt-3 pb-3 pl-6 pr-6 bg-[#696DCA] w-[13rem] text-center rounded mt-4 '><button onClick={topayment}>Book call ₹399 only </button></div>
         </div>
     )
 }

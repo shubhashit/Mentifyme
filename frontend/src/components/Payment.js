@@ -31,7 +31,7 @@ export default function Payment() {
     }
   }
   return (
-    <div>
+    <div className='mb-4'>
       <Navbar></Navbar>
       {section == 1 ? <PickDateTime OnPrevious={OnPrevious} setsection={setsection} paymentSequence={paymentSequence} setDate = {setDate} setTime={setTime}></PickDateTime> : <></>}
       {section == 2 ? <Details OnPrevious={OnPrevious} setpersonaldetails={setpersonaldetails} setsection={setsection} paymentSequence={paymentSequence}></Details> : <></>}

@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import leftdate from '../assets/payment/leftdate.png'
 import rightdate from '../assets/payment/rightdate.png'
 import Dateslot from './Dateslot'
 
 export default function PickDateTime(props) {
+    const [datetime , setdatetime] = useState(null)
     useEffect(() => {
         // Make a GET request
         async function fetchdata() {
@@ -20,8 +21,10 @@ export default function PickDateTime(props) {
                     headers: headersList
                 });
 
-                let data = await response.text();
+                let data = await response.json();
                 console.log(data);
+                setdatetime(data);
+                console.log(datetime)
 
             } catch (error) {
                 console.log(error)
@@ -89,9 +92,9 @@ export default function PickDateTime(props) {
                     <div className='font-medium text-2xl mb-4'>Pick a date</div>
                     <div className='flex flex-row items-center'>
                         <img src={leftdate} alt="" />
-                        {
+                        {datetime &&
                             // arr.map((item , index)=>{console.log(item , index)})
-                            arr.map((item, index) => (
+                            datetime.map((item, index) => (
                                 <Dateslot key={item.id} day={item.Day} date={item.slot_date} color="#696DCA" />
                             ))
                         }

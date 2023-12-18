@@ -3,6 +3,8 @@ import setting from '../assets/tabler-icon-settings.png'
 import copy from '../assets/tabler-icon-copy.png'
 import calset from '../assets/tabler-icon-calendar-time.png'
 import tablericonbook1 from '../assets/tabler-icon-book (1).png'
+import rightclick from '../assets/rightclick.png'
+import leftclick from '../assets/leftclick.png'
 
 
 export default function Upcoming() {
@@ -24,23 +26,30 @@ export default function Upcoming() {
 
                   <div className='flex flex-row justify-between'>
                       <div className='flex flex-col'>
-                          <div className='font-medium text-xl'>30 mins call with IIT JEE mentor </div>
-                          <div className='text-[#878787] font-normal text-base'>Video Meeting | 30 mins</div>
+                          <div className='font-medium md:text-xl text-base'>30 mins call with IIT JEE mentor </div>
+                          <div className='text-[#878787] font-normal md:text-base text-xs'>Video Meeting | 30 mins</div>
                       </div>
                       <div><img src={setting} alt="" /></div>
                   </div>
                   <div className='flex flex-row items-center mt-2'>
                       <div><img src={calset} alt="" /></div>
-                      <div className='text-[#696DCA] font-medium text-lg ml-2'>Mon,28 Oct | 8:30-9:00PM</div>
+                      <div className='text-[#696DCA] font-medium md:text-lg text-xs ml-2'>Mon,28 Oct | 8:30-9:00PM</div>
                   </div>
                   <div>
-                      <button className='text-[#696DCA] font-medium text-lg border rounded-md border-[#696DCA] h-14 w-40 mt-4 mb-4'>Join meet</button>
+                      <button className='text-[#696DCA] font-medium md:text-lg text-xs border rounded-md border-[#696DCA] md:h-14 md:w-40 w-32 h-10 md:mt-4 mt-2 md:mb-4 mb-2'>Join meet</button>
                   </div>
-                  <div className='flex flex-row items-center mb-4'>
-                      <div><img src={copy} alt="" /></div>
-                      <div className='font-normal text-lg'>Copy Link</div>
+                  <div className='flex flex-row items-center md:mb-4 mb-2'>
+                      <div><img src={copy} alt="" className='' /></div>
+                      <div className='font-normal md:text-lg text-xs'>Copy Link</div>
                   </div>
               </div>
+          </div>
+          <div className='flex flex-row justify-center items-center mb-10 mt-5'>
+              <img src={leftclick} className='mr-10' alt="" />
+              <div className='w-4 h-4 rounded-full bg-[#696DCA] mr-2'></div>
+              <div className='w-4 h-4 rounded-full bg-[#D9D9D9] mr-2'></div>
+              <div className='w-4 h-4 rounded-full bg-[#D9D9D9] mr-2'></div>
+              <img src={rightclick} className='ml-10' alt="" />
           </div>
       </div>
   )

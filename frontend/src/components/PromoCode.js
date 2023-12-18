@@ -5,6 +5,7 @@ export default function PromoCode(props) {
     async function Applycode(){
         console.log('code')
         console.log(code.current.value)
+        let apicode = code.current.value;
         try {
             let headersList = {
                 "Accept": "*/*",
@@ -13,7 +14,7 @@ export default function PromoCode(props) {
             }
 
             let bodyContent = JSON.stringify({
-                "code": "2123",
+                "code": apicode,
                 "service_code": "1234"
             });
 

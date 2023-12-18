@@ -35,7 +35,6 @@ export default function Landingpage() {
     }
     // fetchdata();
   }, []); 
-  console.log(data)
   return (
     <div>
       <Navbar></Navbar>

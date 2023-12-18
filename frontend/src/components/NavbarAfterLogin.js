@@ -8,13 +8,14 @@ import tablericonbook from '../assets/tabler-icon-book.png'
 import tablericonbook2 from '../assets/tabler-icon-book-2.png'
 import tablericonbook3 from '../assets/tabler-icon-calendar-stats.png'
 import tablericonbook4 from '../assets/tabler-icon-gift.png'
+import logout from '../assets/logout.png'
 
 export default function NavbarAfterLogin() {
-    const [ham , setham] = useState(false);
+    const [ham, setham] = useState(false);
     function OnhamburgerClick() {
         setham(true);
     }
-    function Oncross(){
+    function Oncross() {
         setham(false);
     }
     return (
@@ -34,34 +35,40 @@ export default function NavbarAfterLogin() {
                 </div>
             </div>
             <div className='flex flex-row justify-between p-3 items-center shadow md:hidden'>
-                <div className={`bg-white w-[60%] absolute right-0 top-0 h-[100vh] z-10 ${ham ? "block" : "hidden"}`}>
-                    <div className='flex flex-row justify-end mt-3 mr-3'>
-                        <img src={navbarcross} alt="" onClick={Oncross} />
-                    </div>
-                    <div className='ml-3'>
-                        <div className='flex flex-row items-center mt-6'>
-                            <div className='w-12 h-12 rounded-full border-[2px] border-[#696DCA] text-center text-2xl font-medium flex justify-center items-center text-[#696DCA] mr-3'>S</div>
-                            <div className='text-lg font-medium'>Satyam Sharma</div>
+                <div className={`bg-white w-[60%] absolute right-0 top-0 h-[100vh] flex flex-col justify-between z-10 ${ham ? "block" : "hidden"}`}>
+                    <div>
+                        <div className='flex flex-row justify-end mt-3 mr-3'>
+                            <img src={navbarcross} alt="" onClick={Oncross} />
                         </div>
-                        <div className='flex flex-col items-start w-fit m-auto'>
+                        <div className='ml-3'>
+                            <div className='flex flex-row items-center mt-6'>
+                                <div className='w-12 h-12 rounded-full border-[2px] border-[#696DCA] text-center text-2xl font-medium flex justify-center items-center text-[#696DCA] mr-3'>S</div>
+                                <div className='text-lg font-medium'>Satyam Sharma</div>
+                            </div>
+                            <div className='flex flex-col items-start w-fit m-auto'>
 
-                            <div className='flex flex-row mt-10'>
-                                <div><img src={tablericonbook} alt="" /></div>
-                                <div className='font-medium text-base ml-2 hover:text-[#3F3D56]'>My Sessions</div>
-                            </div>
-                            <div className='flex flex-row mt-10'>
-                                <div><img src={tablericonbook2} alt="" /></div>
-                                <div className='font-medium text-base ml-2 hover:text-[#3F3D56]'>Premium Plan</div>
-                            </div>
-                            <div className='flex flex-row mt-10'>
-                                <div><img src={tablericonbook3} alt="" /></div>
-                                <div className='font-medium text-base ml-2 hover:text-[#3F3D56]'>Book Calls</div>
-                            </div>
-                            <div className='flex flex-row mt-10'>
-                                <div><img src={tablericonbook4} alt="" /></div>
-                                <div className='font-medium text-base ml-2 hover:text-[#3F3D56]'>Rewards</div>
+                                <div className='flex flex-row mt-10'>
+                                    <div><img src={tablericonbook} alt="" /></div>
+                                    <div className='font-medium text-base ml-2 hover:text-[#3F3D56]'>My Sessions</div>
+                                </div>
+                                <div className='flex flex-row mt-10'>
+                                    <div><img src={tablericonbook2} alt="" /></div>
+                                    <div className='font-medium text-base ml-2 hover:text-[#3F3D56]'>Premium Plan</div>
+                                </div>
+                                <div className='flex flex-row mt-10'>
+                                    <div><img src={tablericonbook3} alt="" /></div>
+                                    <div className='font-medium text-base ml-2 hover:text-[#3F3D56]'>Book Calls</div>
+                                </div>
+                                <div className='flex flex-row mt-10'>
+                                    <div><img src={tablericonbook4} alt="" /></div>
+                                    <div className='font-medium text-base ml-2 hover:text-[#3F3D56]'>Rewards</div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div className='flex flex-row m-4 ml-8'>
+                        <img src={logout} alt="" />
+                        <div className='text-base font-medium '>Logout</div>
                     </div>
                 </div>
                 <div className='flex flex-row'>

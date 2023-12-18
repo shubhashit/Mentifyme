@@ -374,9 +374,9 @@ export default function PremiumHero() {
             </div>
             <div className='flex flex-row justify-center items-center mb-5 md:hidden'>
                 <img src={leftclick} className='mr-10' alt="" onClick={OnleftClick} />
-                <div className={`w-4 h-4 rounded-full ${Page == 1 ? "bg-[#696DCA]" :"bg-[#D9D9D9]" }  mr-2`}></div>
-                <div className={`w-4 h-4 rounded-full ${Page == 2 ? "bg-[#696DCA]" :"bg-[#D9D9D9]" }  mr-2`}></div>
-                <div className={`w-4 h-4 rounded-full ${Page == 3 ? "bg-[#696DCA]" :"bg-[#D9D9D9]" }  mr-2`}></div>
+                <div className={`w-4 h-4 rounded-full ${Page === 1 ? "bg-[#696DCA]" :"bg-[#D9D9D9]" }  mr-2`}></div>
+                <div className={`w-4 h-4 rounded-full ${Page === 2 ? "bg-[#696DCA]" :"bg-[#D9D9D9]" }  mr-2`}></div>
+                <div className={`w-4 h-4 rounded-full ${Page === 3 ? "bg-[#696DCA]" :"bg-[#D9D9D9]" }  mr-2`}></div>
                 <img src={rightclick} className='ml-10' alt="" onClick={Onrightclick} />
             </div>
         </div >
