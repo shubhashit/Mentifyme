@@ -4,7 +4,8 @@ import rightdate from '../assets/payment/rightdate.png'
 import Dateslot from './Dateslot'
 
 export default function PickDateTime(props) {
-    const [datetime , setdatetime] = useState(null)
+    const [datetime, setdatetime] = useState(null)
+    const [stream, setStream] = useState();
     useEffect(() => {
         // Make a GET request
         async function fetchdata() {
@@ -31,7 +32,7 @@ export default function PickDateTime(props) {
             }
         }
         // fetchdata();
-    }, []); 
+    }, []);
     const arr = [
         {
             "id": 1,
@@ -40,7 +41,7 @@ export default function PickDateTime(props) {
             "Booking_status": false,
             "temp_booking_status": false,
             "Mentor": 25,
-            "Day" : "Mon",
+            "Day": "Mon",
         },
         {
             "id": 2,
@@ -49,7 +50,7 @@ export default function PickDateTime(props) {
             "Booking_status": false,
             "temp_booking_status": false,
             "Mentor": 25,
-            "Day" : "Tue",
+            "Day": "Tue",
         },
         {
             "id": 3,
@@ -58,14 +59,19 @@ export default function PickDateTime(props) {
             "Booking_status": false,
             "temp_booking_status": false,
             "Mentor": 26,
-            "Day" : "Wed",
+            "Day": "Wed",
         }
     ];
+    function handleDropdownChange(event) {
+        console.log(event.target.value)
+        setStream(event.target.value)
+    }
 
-    
     return (
-        <div className='relative flex flex-col items-center justify-between pt-24'>
+        <>
+        <div className='relative  flex-col items-center justify-between pt-24 hidden md:flex'>
             <div className='absolute left-3 top-6 text-[#878787] text-lg font-normal'>&lt;   Book call</div>
+        
             <div className='flex flex-row '>
                 <div className='flex flex-row items-center'>
                     <div className='bg-[#696DCA] w-6 h-6 rounded-full flex justify-center items-center text-white'>1</div>
@@ -84,28 +90,28 @@ export default function PickDateTime(props) {
             </div>
             <div className='w-[90%] lg:w-[]]'>
                 <div className='font-normal text-2xl'>Choose your stream</div>
-                <div className='h-[3.5rem] w-[25rem] border rounded-lg'><input type="search" name="IIT JEE" id="" /></div>
+                <div className='h-[3.5rem] w-[25rem] border rounded-lg'>
+                    <label htmlFor="dropdown" ></label>
+                    <select id="dropdown" className='h-[3.5rem] w-[25rem] border rounded-lg outline-none text-xl p-2' onChange={handleDropdownChange}>
+                        <option value="codehere">IIT JEE</option>
+                        <option value="codehere">NEET</option>
+                        <option value="codehere">Option 3</option>
+                    </select>
+                </div>
             </div>
 
             <div className='w-[90%]  rounded mt-8 mb-8 flex flex-col items-center border pl-8 pb-8' style={{ "boxShadow": "0px 0px 4px 0px rgba(0, 0, 0, 0.25)" }}>
                 <div className='mt-8 flex flex-col w-full ml-10' >
-                    <div className='font-medium text-2xl mb-4'>Pick a date</div>
+                    <div className='font-medium text-2xl mb-4 text-[]'>Pick a date</div>
                     <div className='flex flex-row items-center'>
                         <img src={leftdate} alt="" />
                         {datetime &&
-                            // arr.map((item , index)=>{console.log(item , index)})
                             datetime.map((item, index) => (
                                 <Dateslot key={item.id} day={item.Day} date={item.slot_date} color="#696DCA" />
                             ))
                         }
                         {
-                        /* <Dateslot day='Mon' date="28 Oct" color="#696DCA"></Dateslot>
-                        <Dateslot day='Tue' date="29 Oct" color="#878787"></Dateslot>
-                        <Dateslot day='Wed' date="30 Oct" color="#878787"></Dateslot>
-                        <Dateslot day='Thus' date="31 Oct" color="#878787"></Dateslot>
-                        <Dateslot day='Fri' date="01 Nov" color="#878787"></Dateslot>
-                        <Dateslot day='Sat' date="02 Nov" color="#878787"></Dateslot>
-                        <Dateslot day='Sun' date="03 Nov" color="#878787"></Dateslot> */
+                            /* <Dateslot day='Mon' date="28 Oct" color="#696DCA"></Dateslot>*/
                         }
                         <img src={rightdate} alt="" />
                     </div>
@@ -118,6 +124,8 @@ export default function PickDateTime(props) {
                         <div className='w-[6.5rem] h-[2rem] bg-[#696DCA] rounded text-[white] flex justify-center items-center mr-2'>Night</div>
                         <div className='w-[6.5rem] h-[2rem] bg-[#D9D9D9] rounded text-[#878787] flex justify-center items-center'>Afternoon</div>
                     </div>
+                        <div className='font-medium text-base text-[] mb-2 '>Available time according to selected slot for call</div>
+
                     <div>
 
                     </div>
@@ -133,23 +141,89 @@ export default function PickDateTime(props) {
                         {/* <div className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3`}>
                             <div className={`text-[#696DCA] text-lg font-bold`}>8: 30 PM</div>
                         </div>
-                        <div className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#D9D9D9] mr-3 ml-3`}>
-                            <div className={`text-[#878787] text-lg font-bold`}>9: 00 PM</div>
-                        </div>
-                        <div className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#D9D9D9] mr-3 ml-3`}>
-                            <div className={`text-[#878787] text-lg font-bold`}>9: 30 PM</div>
-                        </div>
-                        <div className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#D9D9D9] mr-3 ml-3`}>
-                            <div className={`text-[#878787] text-lg font-bold`}>10: 00 PM</div>
-                        </div>
-                        <div className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#D9D9D9] mr-3 ml-3`}>
-                            <div className={`text-[#878787] text-lg font-bold`}>11: 00 PM</div>
-                        </div> */}
-                        <img src={rightdate} alt="" />
+                    <img src={rightdate} alt="" /> */}
                     </div>
                 </div>
             </div>
             <div className='w-[24rem] p-4 text-base font-medium bg-[#696DCA] rounded text-[white] flex justify-center items-center mr-2 cursor-pointer' onClick={props.paymentSequence}>Continue</div>
         </div>
+
+
+        {/* mobile view (down) */}
+
+            <div className='relative flex flex-col items-center justify-start pt-16 md:hidden'>
+                <div className='absolute left-3 top-6 text-[#3F3D56] text-lg font-medium'>&lt;   Book call</div>
+
+                <div className='flex flex-row w-screen justify-start'>
+                    <div className='flex flex-row items-center'>
+                        <div className='text-[#696DCA] ml-3 font-medium text-sm'>Date & Time   &gt;</div>
+                    </div>
+                    <div className='flex flex-row items-center ml-4'>
+                        <div className='text-[black] ml-3 font-medium text-sm'>Details   &gt;</div>
+                    </div>
+                    <div className='flex flex-row items-center ml-4'>
+                        <div className='text-[black] ml-3 font-medium text-sm'>Payment</div>
+                    </div>
+                </div>
+                <div className='w-full p-2'>
+                    <div className='font-medium text-lg'>Choose your stream</div>
+                    <div className='h-[2rem] w-[90%] border rounded-lg'>
+                        <label htmlFor="dropdown" ></label>
+                        <select id="dropdown" className='h-[2rem] w-full border rounded-lg outline-none text-base ' onChange={handleDropdownChange}>
+                            <option value="codehere">IIT JEE</option>
+                            <option value="codehere">NEET</option>
+                            <option value="codehere">Option 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className='w-[90%]  rounded mt-8 mb-8 flex flex-col items-center'>
+                    <div className='flex flex-col w-full' >
+                        <div className='font-medium text-lg mb-4 text-[]'>Pick a date</div>
+                        <div className='flex flex-row items-center'>
+                            <img src={leftdate} alt="" />
+                            {datetime &&
+                                arr.map((item, index) => (
+                                    <Dateslot key={item.id} day={item.Day} date={item.slot_date} color="#696DCA" />
+                                ))
+                            }
+                            {
+                                /* <Dateslot day='Mon' date="28 Oct" color="#696DCA"></Dateslot>*/
+                            }
+                            <img src={rightdate} alt="" />
+                        </div>
+                    </div>
+                    <div className='mt-4 flex flex-col w-full' >
+                        <div className='font-medium text-lg mb-2'>Pick a time</div>
+                        <div className='font-normal text-base  text-[#878787]'>Choose your suitable time period</div>
+                        <div className='flex flex-row mt-3 mb-3'>
+                            <div className='w-[30%] h-[2rem] bg-[#D9D9D9] rounded text-[#878787] flex justify-center items-center mr-2 text-sm'>Morning</div>
+                            <div className='w-[30%] h-[2rem] bg-[#696DCA] rounded text-[white] flex justify-center items-center mr-2 text-sm'>Night</div>
+                            <div className='w-[30%] h-[2rem] bg-[#D9D9D9] rounded text-[#878787] flex justify-center items-center text-sm'>Afternoon</div>
+                        </div>
+                        <div className='font-medium text-sm text-[] mb-2 '>Available time according to selected slot for call</div>
+                        <div>
+
+                        </div>
+                        <div className='flex flex-row items-center justify-start'>
+                            {/* <img src={leftdate} alt="" /> */}
+                            {
+                                arr.map((item, index) => (
+                                    <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3`}>
+                                        <div className={`text-[#696DCA] text-lg font-bold`}>{item.Time_slot}</div>
+                                    </div>
+                                ))
+                            }
+                            {/* <div className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3`}>
+                            <div className={`text-[#696DCA] text-lg font-bold`}>8: 30 PM</div>
+                        </div>
+                    <img src={rightdate} alt="" /> */}
+                        </div>
+                    </div>
+                </div>
+                <div className='w-[80%] p-4 text-[12px] font-medium bg-[#696DCA] rounded text-[white] flex justify-center items-center mr-2 cursor-pointer' onClick={props.paymentSequence}>Continue</div>
+            </div>
+
+        </>
     )
 }

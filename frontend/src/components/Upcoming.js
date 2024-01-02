@@ -14,13 +14,13 @@ export default function Upcoming() {
               <div><img src={tablericonbook1} alt="" /></div>
               <div className='text-xl font-medium ml-3'>MY Sessions</div>
           </div>
-          <div className='flex flex-col mt-6'>
+          <div className='flex flex-col mt-6 pl-2 md:pl-0'>
               <div className='flex flex-row border-b pb-3'>
                   <div className='text-[#696DCA] font-medium text-base'>Upcoming</div>
                   <div className='font-medium text-base ml-4'>Past</div>
               </div>
           </div>
-          <div className='flex flex-col mt-6 border border-[#696DCA] rounded-lg  md:w-[70%] w-[90%]'>
+          <div className='flex flex-col mt-6 border border-[#696DCA] rounded-lg  md:w-[70%] w-[90%] m-auto'>
               <div className='h-4 rounded-t-lg bg-[#696DCA]'></div>
               <div className='flex flex-col pl-4 pr-4 mt-3'>
 

@@ -5,8 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import AchievmentSlab from './components/AchievmentSlab';
-import Login from './components/Login';
-import LoginOTP from './components/LoginOTP'
+import Signup from './components/Signup';
 import TypeOfperson from './components/TypeOfperson';
 import WakeupTime from './components/WakeupTime';
 import SleepTime from './components/SleepTime';
@@ -26,10 +25,16 @@ import PremiumPage from './components/PremiumPage';
 import BookYourCall from './components/BookYourCall';
 import Payment from './components/Payment';
 import { useContext, useState } from 'react';
-import LoginPassword from './components/LoginPassword';
 import Profile from './components/Profile';
 import Login2 from './components/Login2';
 import UserContext from './components/context/UserContext';
+import Login from './components/admin/Login';
+import Settime from './components/admin/Settime';
+import AdminProfile from './components/admin/AdminProfile';
+import Availability from './components/admin/Availbility';
+import AdminCal from './components/admin/AdminCal';
+import AdminProfileChange from './components/admin/AdminProfileChange';
+import ForgotPassword from './components/ForgotPassword';
 
 function App() {
   const {user} = useContext(UserContext);
@@ -53,7 +58,7 @@ function App() {
 
   return (
     
-    <div className="lg:overflow-x-hidden">
+    <div className="lg:overflow-x-hidden bg-white">
       <Router>
         <Routes>
           <Route exact path="/" element={<Landingpage></Landingpage>} />
@@ -61,8 +66,10 @@ function App() {
           <Route exact path="/BookYourCall" element={<BookYourCall></BookYourCall>} />
           <Route exact path="/payment" element={<Payment></Payment>} />
           <Route exact path="/testing" element={<><Navbar></Navbar><Subjects></Subjects></>} />
-          <Route exact path="/signup" element={<> <Navbar></Navbar> <Login setPhone_number={setPhone_number}></Login> </>} />
+          <Route exact path="/signup" element={<> <Navbar></Navbar> <Signup setPhone_number={setPhone_number}></Signup> </>} />
           <Route exact path="/login" element={<> <Navbar></Navbar> <Login2 setPhone_number={setPhone_number}></Login2> </>} />
+          <Route exact path="/forgetpassword" element={<> <ForgotPassword></ForgotPassword> </>} />
+
           {/* <Route exact path="/LoginOTP" element={<> <Navbar></Navbar> <LoginOTP day="day" phone_number={phone_number} setotp={setotp}></LoginOTP> </>} /> */}
           {/* <Route exact path="/LoginPassword" element={<> <Navbar></Navbar> <LoginPassword phone_number={phone_number} otp={otp}></LoginPassword> </>} /> */}
           <Route exact path="/timetable/name" element={<> <Navbar></Navbar> <Name></Name> </>} />
@@ -77,6 +84,16 @@ function App() {
           <Route exact path="/timetable/CoachingTime" element={<> <Navbar></Navbar> <CoachingTime></CoachingTime> </>} />
           <Route exact path="/afterlogin" element={<> <NavbarAfterLogin></NavbarAfterLogin> <AfterLogin></AfterLogin> </>} />
           <Route exact path="/Profile" element={<> <NavbarAfterLogin></NavbarAfterLogin> <Profile></Profile> </>} />
+
+        {/* admin paths */}
+          <Route exact path="/admin-login" element={<> <Login></Login> </>} />
+          <Route exact path="/admin-settime" element={<> <Settime></Settime> </>} />
+          <Route exact path="/admin-profile" element={<> <AdminProfile></AdminProfile> </>} />
+          <Route exact path="/admin-availability" element={<> <Availability></Availability> </>} />
+          <Route exact path="/cal" element={<> <AdminCal></AdminCal> </>} />
+          <Route exact path="/admin-profileChange" element={<> <AdminProfileChange></AdminProfileChange> </>} />
+
+
         </Routes>
       </Router>
       {/* <NavbarAfterLogin></NavbarAfterLogin>

@@ -6,7 +6,7 @@ import PromoCode from './PromoCode'
 
 
 export default function Payment() {
-  const [section , setsection] = useState(1);
+  const [section , setsection] = useState(3);
   const [Date , setDate] = useState();
   const [Time , setTime] = useState();
   const [personaldetails , setpersonaldetails] = useState({});
