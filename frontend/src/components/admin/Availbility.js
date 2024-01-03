@@ -291,7 +291,7 @@ export default function Availability() {
 
                         <div className='p-1 pt-3 border' >
 
-                            <div className='text-lg font-medium text-[#3F3D56] mb-2'>7 Nov 2023</div>
+                            <div className='text-lg flex flex-row justify-between font-medium text-[#3F3D56] mb-2'>7 Nov 2023 <img src={trash} alt="" /></div>
                             <div className='flex flex-row items-center justify-between mb-2'>
                                 <div>
                                     <div className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#] mr-3`}>

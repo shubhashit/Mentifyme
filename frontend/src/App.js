@@ -35,6 +35,7 @@ import Availability from './components/admin/Availbility';
 import AdminCal from './components/admin/AdminCal';
 import AdminProfileChange from './components/admin/AdminProfileChange';
 import ForgotPassword from './components/ForgotPassword';
+import Wallet from './components/admin/Wallet';
 
 function App() {
   const {user} = useContext(UserContext);
@@ -92,6 +93,7 @@ function App() {
           <Route exact path="/admin-availability" element={<> <Availability></Availability> </>} />
           <Route exact path="/cal" element={<> <AdminCal></AdminCal> </>} />
           <Route exact path="/admin-profileChange" element={<> <AdminProfileChange></AdminProfileChange> </>} />
+          <Route exact path="/admin-wallet" element={<> <Wallet></Wallet> </>} />
 
 
         </Routes>

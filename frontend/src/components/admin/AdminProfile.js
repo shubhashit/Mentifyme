@@ -29,7 +29,7 @@ export default function AdminProfile() {
             <div><img src={timeglass} alt="" /></div>
             <div className='text-xl font-medium ml-3'>MY Sessions</div>
           </div>
-          <div className='flex flex-row  justify-between p-2'>
+          <div className='flex flex-row  justify-between p-2 md:hidden'>
             <input type="text" className='border-2 outline-none p-1 mr-2' placeholder='Search' />
             <div className='w-12 border-2 text-center flex justify-center items-center'>Filter</div>
           </div>
@@ -64,7 +64,7 @@ export default function AdminProfile() {
           </div>
 
           {/* for mobile down here  */}
-          <div className="grid p-2" style={{gridTemplateColumns : "3fr 3fr 1fr 1fr 1fr"}}>
+          <div className="grid p-2 md:hidden" style={{gridTemplateColumns : "3fr 3fr 1fr 1fr 1fr"}}>
             <div className="text-xs text-[#667085] text-center flex items-center justify-center ">Student Name</div>
             <div className="text-xs text-[#667085] flex items-center justify-center ">Dates & time</div>
             <div className="text-xs text-[#667085] flex items-center justify-center ">Session</div>
