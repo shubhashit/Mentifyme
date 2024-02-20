@@ -40,12 +40,12 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
-            <Session></Session>
+            {/* <Session></Session> */}
             {/* <Upcoming></Upcoming> */}
             {/* <Past></Past> */}
             {/* <Bookcall></Bookcall> */}
-            {/* <Rewards></Rewards> */}
-            {/* <div className='md:w-1/4 bg-[#D9D9D926] flex flex-col items-center h-fit mb-4'>
+            <Rewards></Rewards>
+            <div className='md:w-1/4 bg-[#D9D9D926] flex flex-col items-center h-fit mb-4'>
                 <div className='font-bold text-lg mt-8'>Upcoming Events</div>
                 <div><img src={upcomingEvent} alt="" /></div>
                 <div className=' text-lg'>How to make Chemistry a Strong Zone</div>
@@ -66,10 +66,10 @@ export default function Profile() {
                     <div className='w-4 h-4 rounded-full bg-[#D9D9D9] mr-2'></div>
                     <div className='w-4 h-4 rounded-full bg-[#D9D9D9] mr-2'></div>
                 </div>
-            </div> */}
-            {/* <div className='block md:hidden'>
+            </div>
+            <div className='block md:hidden'>
                 <Footer></Footer>
-            </div> */}
+            </div>
         </div>
     )
 }

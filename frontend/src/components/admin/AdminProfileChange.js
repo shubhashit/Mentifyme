@@ -38,7 +38,7 @@ export default function AdminProfileChange() {
                     </div>
                     <div className='w-full mb-3'>
                         <div className='text-lg font-medium mb-1'>Email</div>
-                        <input type="text" className='text-xl outline-none border-2 w-full md:w-[25rem] rounded-md h-[3.5rem] p-2' />
+                        <input type="email" className='text-xl outline-none border-2 w-full md:w-[25rem] rounded-md h-[3.5rem] p-2' />
                     </div>
                     <div className='w-full mb-3'>
                         <div className='text-lg font-medium mb-1'>College</div>

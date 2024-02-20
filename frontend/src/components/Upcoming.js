@@ -20,7 +20,7 @@ export default function Upcoming() {
                   <div className='font-medium text-base ml-4'>Past</div>
               </div>
           </div>
-          <div className='flex flex-col mt-6 border border-[#696DCA] rounded-lg  md:w-[70%] w-[90%] m-auto'>
+          <div className='flex flex-col mt-6 border border-[#696DCA] rounded-lg  md:w-[70%] w-[90%] '>
               <div className='h-4 rounded-t-lg bg-[#696DCA]'></div>
               <div className='flex flex-col pl-4 pr-4 mt-3'>
 
