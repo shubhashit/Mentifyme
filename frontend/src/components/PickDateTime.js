@@ -4,8 +4,8 @@ import rightdate from '../assets/payment/rightdate.png'
 import Dateslot from './Dateslot'
 
 export default function PickDateTime(props) {
-    const [datetime, setdatetime] = useState(null)
-    const [stream, setStream] = useState();
+    // const [datetime, setdatetime] = useState()
+    // const [stream, setStream] = useState();
     useEffect(() => {
         // Make a GET request
         async function fetchdata() {
@@ -63,9 +63,21 @@ export default function PickDateTime(props) {
         }
     ];
     function handleDropdownChange(event) {
-        console.log(event.target.value)
-        setStream(event.target.value)
+        // console.log(event.target.value)
+        // setStream(event.target.value)
+        props.setStream(event.target.value);
     }
+    function Oncontinue(){
+        console.log('hell')
+        
+        props.paymentSequence;
+    }
+    // selectDate = () =>{
+
+        // }
+    
+    // console.log(stream)
+    // console.log(datetime)
 
     return (
         <>
@@ -105,13 +117,15 @@ export default function PickDateTime(props) {
                     <div className='font-medium text-2xl mb-4 text-[]'>Pick a date</div>
                     <div className='flex flex-row items-center'>
                         <img src={leftdate} alt="" />
-                        {datetime &&
-                            datetime.map((item, index) => (
-                                <Dateslot key={item.id} day={item.Day} date={item.slot_date} color="#696DCA" />
+                        {
+                            arr.map((item, index) => (
+                                <div key={item.id} className='cursor-pointer' onClick={()=>{props.setDate({"date" : item.slot_date})}}>
+                                    <Dateslot day={item.Day} date={item.slot_date} color="#696DCA"  />
+                                </div>
                             ))
                         }
                         {
-                            /* <Dateslot day='Mon' date="28 Oct" color="#696DCA"></Dateslot>*/
+                            /* <Dateslot day='Mon' date="28 Oct" color="#696DCA"></Dateslot> */
                         }
                         <img src={rightdate} alt="" />
                     </div>
@@ -133,7 +147,7 @@ export default function PickDateTime(props) {
                         <img src={leftdate} alt="" />
                         {
                             arr.map((item, index) => (
-                                <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3`}>
+                                <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer`} onClick={() =>{props.setTime({"time" : item.Time_slot})}}>
                                     <div className={`text-[#696DCA] text-lg font-bold`}>{item.Time_slot}</div>
                                 </div>
                             ))
@@ -182,13 +196,13 @@ export default function PickDateTime(props) {
                         <div className='font-medium text-lg mb-4 text-[]'>Pick a date</div>
                         <div className='flex flex-row items-center'>
                             <img src={leftdate} alt="" />
-                            {datetime &&
+                            {
                                 arr.map((item, index) => (
                                     <Dateslot key={item.id} day={item.Day} date={item.slot_date} color="#696DCA" />
                                 ))
                             }
                             {
-                                /* <Dateslot day='Mon' date="28 Oct" color="#696DCA"></Dateslot>*/
+                                //  <Dateslot day='Mon' date="28 Oct" color="#696DCA"></Dateslot>
                             }
                             <img src={rightdate} alt="" />
                         </div>
@@ -221,7 +235,7 @@ export default function PickDateTime(props) {
                         </div>
                     </div>
                 </div>
-                <div className='w-[80%] p-4 text-[12px] font-medium bg-[#696DCA] rounded text-[white] flex justify-center items-center mr-2 cursor-pointer' onClick={props.paymentSequence}>Continue</div>
+                <div className='w-[80%] p-4 text-[12px] font-medium bg-[#696DCA] rounded text-[white] flex justify-center items-center mr-2 cursor-pointer' onClick={Oncontinue}>Continue</div>
             </div>
 
         </>

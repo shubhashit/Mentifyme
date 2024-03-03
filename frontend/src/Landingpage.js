@@ -12,7 +12,8 @@ import HeroSubSection from './components/HeroSubSection'
 
 export default function Landingpage() {
   const [data, setData] = useState(null);
-
+  const url = process.env.REACT_APP_BASE_URL;
+  console.log(url)
   useEffect(() => {
     // Make a GET request
     async function fetchdata (){
@@ -23,7 +24,7 @@ export default function Landingpage() {
         // "ngrok-skip-browser-warning": "69420",
       }
 
-      let response = await fetch("https://fa67-2401-4900-73e4-ae27-88ba-e20e-3377-af33.ngrok-free.app/api/index/", {
+      let response = await fetch(`${url}/api/index`, {
         method: "GET",
         headers: headersList
       });
@@ -33,7 +34,7 @@ export default function Landingpage() {
       console.log(data);
       // console.log(data.banner)
     }
-    // fetchdata();
+    fetchdata();
   }, []); 
   return (
     <div>

@@ -6,11 +6,13 @@ import PromoCode from './PromoCode'
 
 
 export default function Payment() {
-  const [section , setsection] = useState(3);
-  const [Date , setDate] = useState();
-  const [Time , setTime] = useState();
+  const [section , setsection] = useState(1);
+  const [Date , setDate] = useState({});
+  const [Time , setTime] = useState({});
+  const [Stream , setStream] = useState();
   const [personaldetails , setpersonaldetails] = useState({});
   console.log(personaldetails)
+  console.log(Date , Time , Stream)
   function paymentSequence() {
     console.log('continue')
     if(section == 1){
@@ -33,7 +35,7 @@ export default function Payment() {
   return (
     <div className='mb-4'>
       <Navbar></Navbar>
-      {section == 1 ? <PickDateTime OnPrevious={OnPrevious} setsection={setsection} paymentSequence={paymentSequence} setDate = {setDate} setTime={setTime}></PickDateTime> : <></>}
+      {section == 1 ? <PickDateTime OnPrevious={OnPrevious} setsection={setsection} paymentSequence={paymentSequence} setDate = {setDate} setTime={setTime} setStream = {setStream}></PickDateTime> : <></>}
       {section == 2 ? <Details OnPrevious={OnPrevious} setpersonaldetails={setpersonaldetails} setsection={setsection} paymentSequence={paymentSequence}></Details> : <></>}
       {section == 3 ? <PromoCode OnPrevious={OnPrevious} setsection={setsection} paymentSequence={paymentSequence}></PromoCode> : <></>}
     </div>
