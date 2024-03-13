@@ -3,9 +3,12 @@ import x from '../assets/x.svg'
 import xwhite from '../assets/xwhite.svg'
 import { useNavigate } from 'react-router-dom'
 import UserContext from './context/UserContext'
+import TokenContext from './context/UserToken'
 
 export default function Login2() {
     const { user , setUser } = useContext(UserContext);
+    const {token , setToken} = useContext(TokenContext);
+    console.log(token)
     function on(){
         setUser({"name" : "shubh" , "id" : "autogenerate"});
     }
@@ -18,7 +21,7 @@ export default function Login2() {
         let num = InputNum.current.value;
         let Password = password.current.value;
         let headersList = {
-            "Accept": "*/*",
+            "Accept": "/",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "application/json"
         }
@@ -28,7 +31,7 @@ export default function Login2() {
             "password": Password
         });
 
-        let response = await fetch("https://04de-2401-4900-73f6-f125-dc6e-48d9-32e-21e.ngrok-free.app/api/login/", {
+        let response = await fetch(`${url}/api/login/`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
@@ -36,6 +39,8 @@ export default function Login2() {
 
         let data = await response.text();
         console.log(data);
+        setToken(data.token);
+        navigate('/payment')
     }
     async function Tosignup() {
         navigate('/signup')

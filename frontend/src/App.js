@@ -37,9 +37,12 @@ import AdminProfileChange from './components/admin/AdminProfileChange';
 import ForgotPassword from './components/ForgotPassword';
 import Wallet from './components/admin/Wallet';
 import Ratings from './components/admin/Ratings';
+import TokenContext from './components/context/UserToken';
 
 function App() {
   const {user} = useContext(UserContext);
+  const {token , setToken} = useContext(TokenContext);
+  console.log(token)
   console.log(user);
   const url = process.env.REACT_APP_BASE_URL;
   console.log(url)
