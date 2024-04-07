@@ -38,6 +38,7 @@ import ForgotPassword from './components/ForgotPassword';
 import Wallet from './components/admin/Wallet';
 import Ratings from './components/admin/Ratings';
 import TokenContext from './components/context/UserToken';
+import PremiumBooking from './components/PremiumBooking';
 
 function App() {
   const {user} = useContext(UserContext);
@@ -50,13 +51,13 @@ function App() {
   console.log(phone_number)
 
 
-  // const ProtectedRoute = ({ children }) => {
-  //   if (currentUser === null) {
-  //     console.log('navigation to login page');
-  //     return (<Navigate to="/signin"></Navigate>)
-  //   }
-  //   return children
-  // }
+  const ProtectedRoute = ({ children }) => {
+    if (user === null) {
+      console.log('navigation to login page');
+      return (<Navigate to="/signin"></Navigate>)
+    }
+    return children
+  }
 
 
 
@@ -99,6 +100,11 @@ function App() {
           <Route exact path="/admin-profileChange" element={<> <AdminProfileChange></AdminProfileChange> </>} />
           <Route exact path="/admin-wallet" element={<> <Wallet></Wallet> </>} />
           <Route exact path="/admin-rating" element={<> <Ratings></Ratings> </>} />
+
+
+
+          {/* premium Booking */}
+          <Route exact path="/PremiumBooking" element={<> <PremiumBooking></PremiumBooking> </>} />
 
 
         </Routes>

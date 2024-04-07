@@ -12,16 +12,19 @@ export default function Login2() {
     function on(){
         setUser({"name" : "shubh" , "id" : "autogenerate"});
     }
+    const url = process.env.REACT_APP_BASE_URL;
     console.log(user)
     const navigate = useNavigate();
     const dark = false;
     const InputNum = useRef();
     const password = useRef();
+
+
     async function OnLogin() {
         let num = InputNum.current.value;
         let Password = password.current.value;
         let headersList = {
-            "Accept": "/",
+            "Accept": "*/*",
             "User-Agent": "Thunder Client (https://www.thunderclient.com)",
             "Content-Type": "application/json"
         }
@@ -30,16 +33,24 @@ export default function Login2() {
             "phone_number": num,
             "password": Password
         });
-
+        console.log(bodyContent);
         let response = await fetch(`${url}/api/login/`, {
             method: "POST",
             body: bodyContent,
             headers: headersList
         });
 
-        let data = await response.text();
-        console.log(data);
-        setToken(data.token);
+        // let data = await response.text();
+        console.log(response)
+        let data2 = await response.json();
+
+        // setUser({})
+        console.log(data2);
+        const obj = { "username" :  data2.username , "user_id" : data2.user_id };
+        setUser(obj);
+        setToken(data2.token);
+
+        // setToken(data.token);
         navigate('/payment')
     }
     async function Tosignup() {

@@ -1,18 +1,27 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import PickDateTime from './PickDateTime'
 import Details from './Details'
 import PromoCode from './PromoCode'
+import UserContext from './context/UserContext'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Payment() {
+  const { user } = useContext(UserContext); 
   const [section , setsection] = useState(1);
   const [Date , setDate] = useState({});
   const [Time , setTime] = useState({});
   const [Stream , setStream] = useState();
   const [personaldetails , setpersonaldetails] = useState({});
+  const navigate = useNavigate()
   console.log(personaldetails)
   console.log(Date , Time , Stream)
+  useEffect(()=>{
+    if(user == null){
+      navigate('/login')
+    }
+  } , [user])
   function paymentSequence() {
     console.log('continue')
     if(section == 1){
