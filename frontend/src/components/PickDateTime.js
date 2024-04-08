@@ -46,6 +46,11 @@ export default function PickDateTime(props) {
 
     const [jeeSlot, setjeeSlot] = useState();
     const [neetSlot , setneetSlot] = useState();
+    const [stream , setStream] = useState();
+    const [DateL , setDateL] = useState();
+    const [TimeL , setTimeL] = useState();
+    
+    const [neetSlot , setneetSlot] = useState();
     const { token, setToken } = useContext(TokenContext);
     console.log(token)
 
@@ -83,6 +88,25 @@ export default function PickDateTime(props) {
                 console.log(error)
             }
         }
+        setjeeSlot([])
+        setneetSlot([
+            {
+                "slot": "8:00 PM",
+                "id": 3,
+                "slot_date": "2024-03-13"
+            },
+            {
+                "slot": "8:00 PM",
+                "id": 4,
+                "slot_date": "2024-03-27"
+            },
+            {
+                "slot": "8:00 PM",
+                "id": 7,
+                "slot_date": "2024-04-07"
+            }
+        ])
+        
         fetchdata();
     }, []);
     const arr = [
@@ -96,8 +120,10 @@ export default function PickDateTime(props) {
         }
     ]
     function handleDropdownChange(event) {
-        // console.log(event.target.value)
-        // setStream(event.target.value)
+        console.log(event.target.value)
+        setStream(event.target.value)
+        console.log(stream)
+
         props.setStream(event.target.value);
     }
 
@@ -133,6 +159,7 @@ export default function PickDateTime(props) {
 
         // props.paymentSequence();
     }
+    // console.log(props.setDate)
 
     return (
         <>
@@ -160,9 +187,9 @@ export default function PickDateTime(props) {
                     <div className='h-[3.5rem] w-[25rem] border rounded-lg'>
                         <label htmlFor="dropdown" ></label>
                         <select id="dropdown" className='h-[3.5rem] w-[25rem] border rounded-lg outline-none text-xl p-2' onChange={handleDropdownChange}>
-                            <option value="codehere">IIT JEE</option>
-                            <option value="codehere">NEET</option>
-                            <option value="codehere">Option 3</option>
+                            <option value="jee">IIT JEE</option>
+                            <option value="neet">NEET</option>
+                            {/* <option value="codehere">Option 3</option> */}
                         </select>
                     </div>
                 </div>
@@ -172,12 +199,14 @@ export default function PickDateTime(props) {
                         <div className='font-medium text-2xl mb-4 text-[]'>Pick a date</div>
                         <div className='flex flex-row items-center'>
                             <img src={leftdate} alt="" />
-                            {
-                                arr.map((item, index) => (
-                                    <div key={item.id} className='cursor-pointer' onClick={() => { props.setDate({ "date": item.slot_date }) }}>
+                            
+                            {   
+                                neetSlot && stream === "neet" ? 
+                                neetSlot.map((item, index) => (
+                                    <div key={item.id} className={`cursor-pointer ${DateL === item.slot_date ? "bg-black" : ""}`} onClick={() => { props.setDate({ "date": item.slot_date }) , setDateL(item.slot_date)  }}>
                                         <Dateslot day={item.Day} date={item.slot_date} color="#696DCA" />
                                     </div>
-                                ))
+                                )) : stream === "jee" ? "" : ""
                             }
                             {
                                 /* <Dateslot day='Mon' date="28 Oct" color="#696DCA"></Dateslot> */
@@ -200,17 +229,14 @@ export default function PickDateTime(props) {
                         </div>
                         <div className='flex flex-row items-center justify-start'>
                             <img src={leftdate} alt="" />
-                            {
-                                arr.map((item, index) => (
-                                    <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer`} onClick={() => { props.setTime({ "time": item.Time_slot }) }}>
-                                        <div className={`text-[#696DCA] text-lg font-bold`}>{item.Time_slot}</div>
+                            {neetSlot && stream === 'neet' ?
+                                neetSlot.map((item, index) => (
+                                    <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black ${TimeL === item.slot ? "bg-black" : ""}`} onClick={() => { props.setTime({ "time": item.slot }); setTimeL(item.slot) }}>
+                                        <div className={`text-[#696DCA] text-lg font-bold`}>{item.slot}</div>
                                     </div>
-                                ))
+                                )) : ""
                             }
-                            {/* <div className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3`}>
-                            <div className={`text-[#696DCA] text-lg font-bold`}>8: 30 PM</div>
-                        </div>
-                    <img src={rightdate} alt="" /> */}
+                            <img src={rightdate} alt="" />
                         </div>
                     </div>
                 </div>
