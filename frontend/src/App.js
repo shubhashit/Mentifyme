@@ -51,13 +51,13 @@ function App() {
   console.log(phone_number)
 
 
-  const ProtectedRoute = ({ children }) => {
-    if (user === null) {
-      console.log('navigation to login page');
-      return (<Navigate to="/signin"></Navigate>)
-    }
-    return children
-  }
+  // const ProtectedRoute = ({ children }) => {
+  //   if (user === null) {
+  //     console.log('navigation to login page');
+  //     return (<Navigate to="/signin"></Navigate>)
+  //   }
+  //   return children;
+  // }
 
 
 

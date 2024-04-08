@@ -45,6 +45,7 @@ export default function PickDateTime(props) {
     console.log(OBJ.book_data.slotsneet)
 
     const [jeeSlot, setjeeSlot] = useState();
+    const [neetSlot , setneetSlot] = useState();
     const { token, setToken } = useContext(TokenContext);
     console.log(token)
 
@@ -59,19 +60,21 @@ export default function PickDateTime(props) {
                     "Authorization": "Token f03c4dfc9701095bdd9c261c70d0ff4e530f8d63"
                 }
 
-                let response = await fetch("https://0d13-2401-4900-1c09-e136-a098-bb02-290c-f105.ngrok-free.app/api/oneonecall/", {
+                let response = await fetch(`${url}/api/oneonecall/`, {
                     method: "GET",
                     headers: headersList
                 });
                 console.log(response)
-                let data = await response.text()
+                let data = await response.json()
                 // let data = await response.status();
                 console.log(data);
 
                 // console.log(data);
 
-                // console.log(data.book_data.slotsjee)
-                // console.log(data.book_data.slotsneet)
+                console.log(data.book_data.slotsjee)
+                console.log(data.book_data.slotsneet)
+                setjeeSlot(data.book_data.slotsjee);
+                setneetSlot()
                 // console.log(data);
                 // setdatetime(data);
                 // console.log(datetime)
@@ -128,7 +131,7 @@ export default function PickDateTime(props) {
         }
 
 
-        // props.paymentSequence;
+        // props.paymentSequence();
     }
 
     return (
