@@ -17,11 +17,11 @@ export default function Payment() {
   const navigate = useNavigate()
   console.log(personaldetails)
   console.log(Date , Time , Stream)
-  useEffect(()=>{
-    if(user == null){
-      navigate('/login')
-    }
-  } , [user])
+  // useEffect(()=>{
+  //   if(user == null){
+  //     navigate('/login')
+  //   }
+  // } , [user])
   function paymentSequence() {
     console.log('continue')
     if(section == 1){
@@ -44,7 +44,7 @@ export default function Payment() {
   return (
     <div className='mb-4'>
       <Navbar></Navbar>
-      {section == 1 ? <PickDateTime OnPrevious={OnPrevious} setsection={setsection} paymentSequence={paymentSequence} setDate = {setDate} setTime={setTime} setStream = {setStream}></PickDateTime> : <></>}
+      {section == 1 ? <PickDateTime OnPrevious={OnPrevious} setsection={setsection} paymentSequence={paymentSequence} setDate = {setDate} setTime={setTime} setStream = {setStream} Date = {Date} Time = {Time}></PickDateTime> : <></>}
       {section == 2 ? <Details OnPrevious={OnPrevious} setpersonaldetails={setpersonaldetails} setsection={setsection} paymentSequence={paymentSequence}></Details> : <></>}
       {section == 3 ? <PromoCode OnPrevious={OnPrevious} setsection={setsection} paymentSequence={paymentSequence}></PromoCode> : <></>}
     </div>
