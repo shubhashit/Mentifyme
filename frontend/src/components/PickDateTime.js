@@ -12,7 +12,7 @@ export default function PickDateTime(props) {
         "book_data": {
             "slotsjee": [
                 {
-                    "id": 5,
+                    "id": 1,
                     "slot_date": "2024-03-27",
                     "Booking_status": false,
                     "temp_booking_status": false,
@@ -22,7 +22,7 @@ export default function PickDateTime(props) {
             ],
             "slotsneet": [
                 {
-                    "id": 3,
+                    "id": 1,
                     "slot_date": "2024-03-13",
                     "Booking_status": false,
                     "temp_booking_status": false,
@@ -30,7 +30,7 @@ export default function PickDateTime(props) {
                     "Time_slot": 2
                 },
                 {
-                    "id": 4,
+                    "id": 2,
                     "slot_date": "2024-03-27",
                     "Booking_status": false,
                     "temp_booking_status": false,
@@ -49,8 +49,13 @@ export default function PickDateTime(props) {
     const [stream , setStream] = useState();
     const [DateL , setDateL] = useState();
     const [TimeL , setTimeL] = useState();
+    const [timeG, setTimeG] = useState();
+    const [slotG, setSlotG] = useState(undefined);
+    const [dateG, setDateG] = useState(undefined);
+    const [timeArr, setTimeArr] = useState();
+    const [timeId, setTimeId] = useState();
+
     
-    const [neetSlot , setneetSlot] = useState();
     const { token, setToken } = useContext(TokenContext);
     console.log(token)
 
@@ -75,11 +80,13 @@ export default function PickDateTime(props) {
                 console.log(data);
 
                 // console.log(data);
+                console.log("test element")
 
                 console.log(data.book_data.slotsjee)
                 console.log(data.book_data.slotsneet)
+                console.log("Hello");
                 setjeeSlot(data.book_data.slotsjee);
-                setneetSlot()
+                setneetSlot(data.book_data.slotsneet);
                 // console.log(data);
                 // setdatetime(data);
                 // console.log(datetime)
@@ -88,27 +95,28 @@ export default function PickDateTime(props) {
                 console.log(error)
             }
         }
-        setjeeSlot([])
-        setneetSlot([
-            {
-                "slot": "8:00 PM",
-                "id": 3,
-                "slot_date": "2024-03-13"
-            },
-            {
-                "slot": "8:00 PM",
-                "id": 4,
-                "slot_date": "2024-03-27"
-            },
-            {
-                "slot": "8:00 PM",
-                "id": 7,
-                "slot_date": "2024-04-07"
-            }
-        ])
+        // setjeeSlot([])
+        // setneetSlot([
+        //     {
+        //         "slot": "10:00 PM",
+        //         "id": 1,
+        //         "slot_date": "2024-03-13"
+        //     },
+        //     {
+        //         "slot": "8:00 PM",
+        //         "id": 2,
+        //         "slot_date": "2024-03-27"
+        //     },
+        //     {
+        //         "slot": "8:00 PM",
+        //         "id": 3,
+        //         "slot_date": "2024-04-07"
+        //     }
+        // ])
         
         fetchdata();
     }, []);
+
     const arr = [
         {
             "id": 5,
@@ -161,6 +169,19 @@ export default function PickDateTime(props) {
     }
     // console.log(props.setDate)
 
+    async function handleSetTimeSlot () {
+        if(slotG){
+        // Filter the slotG array based on the condition slot_date === dateG
+        const filteredSlots = slotG.filter(slot => slot.slot_date === dateG);
+
+        // Extract the slot values from the filtered array
+        // const slots = filteredSlots.map(slot => slot.slot);
+
+        setTimeArr(filteredSlots);
+        }
+    };
+
+
     return (
         <>
             <div className='relative  flex-col items-center justify-between pt-24 hidden md:flex'>
@@ -187,6 +208,7 @@ export default function PickDateTime(props) {
                     <div className='h-[3.5rem] w-[25rem] border rounded-lg'>
                         <label htmlFor="dropdown" ></label>
                         <select id="dropdown" className='h-[3.5rem] w-[25rem] border rounded-lg outline-none text-xl p-2' onChange={handleDropdownChange}>
+                        <option value="">SELECT YOUR STREAM</option>
                             <option value="jee">IIT JEE</option>
                             <option value="neet">NEET</option>
                             {/* <option value="codehere">Option 3</option> */}
@@ -200,13 +222,19 @@ export default function PickDateTime(props) {
                         <div className='flex flex-row items-center'>
                             <img src={leftdate} alt="" />
                             
-                            {   
-                                neetSlot && stream === "neet" ? 
-                                neetSlot.map((item, index) => (
-                                    <div key={item.id} className={`cursor-pointer ${DateL === item.slot_date ? "bg-black" : ""}`} onClick={() => { props.setDate({ "date": item.slot_date }) , setDateL(item.slot_date)  }}>
-                                        <Dateslot day={item.Day} date={item.slot_date} color="#696DCA" />
+                            {jeeSlot && stream === 'jee' ?
+                                jeeSlot.map((item, index) => (
+                                    <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black ${TimeL === item.slot ? "bg-black" : ""}`} onClick={async () => { props.setTime({ "time": item.slot }); setTimeL(item.slot); await setSlotG(jeeSlot); setDateG(item.slot_date); handleSetTimeSlot() }}>
+                                        <div className={`text-[#696DCA] text-lg font-bold`}>{item.slot_date}</div>
                                     </div>
-                                )) : stream === "jee" ? "" : ""
+                                )) : ""
+                            }
+                            {neetSlot && stream === 'neet' ?
+                                neetSlot.map((item, index) => (
+                                    <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black ${TimeL === item.slot ? "bg-black" : ""}`} onClick={async () => { props.setTime({ "time": item.slot }); setTimeL(item.slot); await setSlotG(neetSlot); setDateG(item.slot_date); handleSetTimeSlot() }}>
+                                        <div className={`text-[#696DCA] text-lg font-bold`}>{item.slot_date}</div>
+                                    </div>
+                                )) : ""
                             }
                             {
                                 /* <Dateslot day='Mon' date="28 Oct" color="#696DCA"></Dateslot> */
@@ -229,13 +257,29 @@ export default function PickDateTime(props) {
                         </div>
                         <div className='flex flex-row items-center justify-start'>
                             <img src={leftdate} alt="" />
+
+                            {(timeArr && timeArr.length !== 0 ) ? (
+                                timeArr.map((item, index) => (
+                                <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black`} onClick={async () => { setTimeId(item.id); }}>
+                                    <div className={`text-[#696DCA] text-lg font-bold`}>{item.slot}</div>
+                                </div>
+                                ))
+                            ) : ""}
+                            
+                            {/* {jeeSlot && stream === 'jee' ?
+                                jeeSlot.map((item, index) => (
+                                    <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black ${TimeL === item.slot ? "bg-black" : ""}`} onClick={() => { props.setTime({ "time": item.slot }); setTimeL(item.slot) }}>
+                                        <div className={`text-[#696DCA] text-lg font-bold`}>{item.slot}</div>
+                                    </div>
+                                )) : ""
+                            }
                             {neetSlot && stream === 'neet' ?
                                 neetSlot.map((item, index) => (
                                     <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black ${TimeL === item.slot ? "bg-black" : ""}`} onClick={() => { props.setTime({ "time": item.slot }); setTimeL(item.slot) }}>
                                         <div className={`text-[#696DCA] text-lg font-bold`}>{item.slot}</div>
                                     </div>
                                 )) : ""
-                            }
+                            } */}
                             <img src={rightdate} alt="" />
                         </div>
                     </div>
