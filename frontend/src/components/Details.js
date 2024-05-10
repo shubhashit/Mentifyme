@@ -50,7 +50,7 @@ export default function Details(props) {
                         <input type='date' className='h-14 bg-[#696DCA1A] rounded-lg w-[80%] pl-4 mt-4 mb-6 text-[#696DCA]'></input>
 
                         <div className='text-2xl font-medium '>Your stream</div>
-                        <div className='h-[3.5rem] w-[80%] border rounded-lg mb-6'><input ref={Stream} className='h-full w-full outline-none' type="search" name="IIT JEE" id="" /></div>
+                        <div className='h-[3.5rem] w-[80%] border rounded-lg mb-6'><input ref={Stream} className='h-full w-full outline-none' type="search" name="IIT JEE" id="" />{props.dateTimeDetails.stream}</div>
 
                         <div className='font-normal text-[1.375rem]'>₹ 799 <span className='text-xs text-[#878787]'>₹ 999</span></div>
                     </div>
