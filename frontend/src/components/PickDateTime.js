@@ -12,50 +12,70 @@ export default function PickDateTime(props) {
         "book_data": {
             "slotsjee": [
                 {
-                    "id": 1,
-                    "slot_date": "2024-03-27",
-                    "Booking_status": false,
-                    "temp_booking_status": false,
-                    "Mentor": 27,
-                    "Time_slot": 2
+                    "slot": "12:30 PM",
+                    "id": 8,
+                    "slot_date": "2024-05-14"
+                },
+                {
+                    "slot": "7:30 PM",
+                    "id": 10,
+                    "slot_date": "2024-04-28"
                 }
             ],
             "slotsneet": [
                 {
-                    "id": 1,
-                    "slot_date": "2024-03-13",
-                    "Booking_status": false,
-                    "temp_booking_status": false,
-                    "Mentor": 18,
-                    "Time_slot": 2
+                    "slot": "8:00 PM",
+                    "id": 3,
+                    "slot_date": "2024-03-13"
                 },
                 {
-                    "id": 2,
-                    "slot_date": "2024-03-27",
-                    "Booking_status": false,
-                    "temp_booking_status": false,
-                    "Mentor": 18,
-                    "Time_slot": 2
+                    "slot": "8:00 PM",
+                    "id": 4,
+                    "slot_date": "2024-03-27"
+                },
+                {
+                    "slot": "8:00 PM",
+                    "id": 7,
+                    "slot_date": "2024-04-07"
+                },
+                {
+                    "slot": "9:30 PM",
+                    "id": 9,
+                    "slot_date": "2024-04-28"
+                },
+                {
+                    "slot": "8:00 PM",
+                    "id": 11,
+                    "slot_date": "2024-04-28"
+                },
+                {
+                    "slot": "11:30 PM",
+                    "id": 12,
+                    "slot_date": "2024-04-28"
                 }
             ],
             "amount_services": []
         }
     }
+
+
     console.log(OBJ.book_data.slotsjee)
     console.log(OBJ.book_data.slotsneet)
 
+
     const [jeeSlot, setjeeSlot] = useState();
-    const [neetSlot , setneetSlot] = useState();
-    const [stream , setStream] = useState();
-    const [DateL , setDateL] = useState();
-    const [TimeL , setTimeL] = useState();
+    const [neetSlot, setneetSlot] = useState([]);
+    const [onlydates, setonlydates] = useState([]);
+    const [stream, setStream] = useState();
+    const [DateL, setDateL] = useState();
+    const [TimeL, setTimeL] = useState();
     const [timeG, setTimeG] = useState();
-    const [slotG, setSlotG] = useState(undefined);
+    const [slotG, setSlotG] = useState([]);
     const [dateG, setDateG] = useState(undefined);
     const [timeArr, setTimeArr] = useState();
     const [timeId, setTimeId] = useState();
 
-    
+
     const { token, setToken } = useContext(TokenContext);
     console.log(token)
 
@@ -64,56 +84,66 @@ export default function PickDateTime(props) {
         async function fetchdata() {
             console.log("fetchdata");
             try {
-                let headersList = {
-                    "Accept": "*/*",
-                    "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-                    "Authorization": "Token f03c4dfc9701095bdd9c261c70d0ff4e530f8d63"
-                }
+                // let headersList = {
+                //     "Accept": "*/*",
+                //     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+                //     "Authorization": "Token f03c4dfc9701095bdd9c261c70d0ff4e530f8d63"
+                // }
 
-                let response = await fetch(`${url}/api/oneonecall/`, {
-                    method: "GET",
-                    headers: headersList
-                });
-                console.log(response)
-                let data = await response.json()
+                // let response = await fetch(`${url}/api/oneonecall/`, {
+                //     method: "GET",
+                //     headers: headersList
+                // });
+                // console.log(response)s
+                // let data = await response.json()
                 // let data = await response.status();
-                console.log(data);
+                // console.log(data);
 
                 // console.log(data);
-                console.log("test element")
 
-                console.log(data.book_data.slotsjee)
-                console.log(data.book_data.slotsneet)
-                console.log("Hello");
-                setjeeSlot(data.book_data.slotsjee);
-                setneetSlot(data.book_data.slotsneet);
+                // console.log(data.book_data.slotsjee)
+                // console.log(data.book_data.slotsneet)
+                // setjeeSlot(data.book_data.slotsjee);
+                // setneetSlot(data.book_data.slotsneet);
+                setjeeSlot(OBJ.book_data.slotsjee);
+                setneetSlot(OBJ.book_data.slotsneet);
+                // let groupedByDate = [];
+                // // neetSlot.
+                // let temp = [];
+                // OBJ.book_data.slotsneet.forEach(obj => {
+                //     if (!groupedByDate[obj.slot_date]) {
+                //         temp.push(obj.slot_date)
+                //         groupedByDate[obj.slot_date] = [];
+                //     }
+                //     // else groupedByDate[obj.slot_date] = { ...groupedByDate[obj.slot_date], obj };
+                //     groupedByDate[obj.slot_date].push(obj);
+                // });
+                // setonlydates(temp)
+                // console.log(onlydates)
+                // onlydates.forEach(obj =>{
+                //     console.log(obj)
+                // })
+                // setonlydates(groupedByDate)
+                // setneetSlot(groupedByDate);
                 // console.log(data);
                 // setdatetime(data);
                 // console.log(datetime)
+                console.log(jeeSlot, neetSlot)
+                console.log(onlydates)
+                // console.log(neetSlot.forEach(innerArray => {
+                //     innerArray.forEach(object => {
+                //         // Access properties of each object
+                //         console.log(object.slot);
+                //         console.log(object.id);
+                //         console.log(object.slot_date);
+                //     });
+                // })) 
 
             } catch (error) {
                 console.log(error)
             }
         }
-        // setjeeSlot([])
-        // setneetSlot([
-        //     {
-        //         "slot": "10:00 PM",
-        //         "id": 1,
-        //         "slot_date": "2024-03-13"
-        //     },
-        //     {
-        //         "slot": "8:00 PM",
-        //         "id": 2,
-        //         "slot_date": "2024-03-27"
-        //     },
-        //     {
-        //         "slot": "8:00 PM",
-        //         "id": 3,
-        //         "slot_date": "2024-04-07"
-        //     }
-        // ])
-        
+
         fetchdata();
     }, []);
 
@@ -127,10 +157,37 @@ export default function PickDateTime(props) {
             "Time_slot": 2
         }
     ]
+    useEffect(() => {
+        let groupedByDate = [];
+        let temp = [];
+        slotG.forEach(obj => {
+            if (!groupedByDate[obj.slot_date]) {
+                temp.push(obj.slot_date)
+                groupedByDate[obj.slot_date] = [];
+            }
+            // else groupedByDate[obj.slot_date] = { ...groupedByDate[obj.slot_date], obj };
+            groupedByDate[obj.slot_date].push(obj);
+        });
+        setonlydates(temp)
+        console.log(onlydates)
+        onlydates.forEach(obj => {
+            console.log(obj)
+        })
+    }, [slotG])
     function handleDropdownChange(event) {
         console.log(event.target.value)
         setStream(event.target.value)
+        let t = event.target.value;
+
         console.log(stream)
+        if (event.target.value === "jee") {
+            console.log('set setslotg to jee')
+            setSlotG(jeeSlot)
+        }
+        if (event.target.value === "neet") {
+            setSlotG(neetSlot)
+        }
+        console.log(slotG)
 
         props.setStream(event.target.value);
     }
@@ -169,15 +226,19 @@ export default function PickDateTime(props) {
     }
     // console.log(props.setDate)
 
-    async function handleSetTimeSlot () {
-        if(slotG){
-        // Filter the slotG array based on the condition slot_date === dateG
-        const filteredSlots = slotG.filter(slot => slot.slot_date === dateG);
+    async function handleSetTimeSlot(slot_date) {
+        setDateL(slot_date);
+        console.log(DateL)
+        console.log(slot_date)
+        console.log(TimeL)
+        if (slotG) {
+            // Filter the slotG array based on the condition slot_date === dateG
+            const filteredSlots = slotG.filter(slot => slot.slot_date === slot_date);
 
-        // Extract the slot values from the filtered array
-        // const slots = filteredSlots.map(slot => slot.slot);
-
-        setTimeArr(filteredSlots);
+            // Extract the slot values from the filtered array
+            // const slots = filteredSlots.map(slot => slot.slot);
+            console.log(filteredSlots);
+            setTimeArr(filteredSlots);
         }
     };
 
@@ -204,11 +265,11 @@ export default function PickDateTime(props) {
                     </div>
                 </div>
                 <div className='w-[90%] lg:w-[]]'>
-                    <div className='font-normal text-2xl'>Choose your stream</div>
+                    <div className='font-normal text-2xl mt-4'>Choose your stream</div>
                     <div className='h-[3.5rem] w-[25rem] border rounded-lg'>
                         <label htmlFor="dropdown" ></label>
-                        <select id="dropdown" className='h-[3.5rem] w-[25rem] border rounded-lg outline-none text-xl p-2' onChange={handleDropdownChange}>
-                        <option value="">SELECT YOUR STREAM</option>
+                        <select id="dropdown" className='h-[3.5rem] w-[25rem] border rounded-lg outline-none text-xl p-2' onChange={handleDropdownChange} defaultValue={"none"}>
+                            {/* <option value="">SELECT YOUR STREAM</option> */}
                             <option value="jee">IIT JEE</option>
                             <option value="neet">NEET</option>
                             {/* <option value="codehere">Option 3</option> */}
@@ -221,24 +282,30 @@ export default function PickDateTime(props) {
                         <div className='font-medium text-2xl mb-4 text-[]'>Pick a date</div>
                         <div className='flex flex-row items-center'>
                             <img src={leftdate} alt="" />
-                            
-                            {jeeSlot && stream === 'jee' ?
+
+                            {/* {jeeSlot && stream === 'jee' ?
                                 jeeSlot.map((item, index) => (
-                                    <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black ${TimeL === item.slot ? "bg-black" : ""}`} onClick={async () => { props.setTime({ "time": item.slot }); setTimeL(item.slot); await setSlotG(jeeSlot); setDateG(item.slot_date); handleSetTimeSlot() }}>
+                                    <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black ${DateL === item.slot_date ? "bg-black" : ""}`} onClick={async () => {  setDateG(item.slot_date); handleSetTimeSlot(item.slot_date) }}>
                                         <div className={`text-[#696DCA] text-lg font-bold`}>{item.slot_date}</div>
                                     </div>
                                 )) : ""
                             }
                             {neetSlot && stream === 'neet' ?
                                 neetSlot.map((item, index) => (
-                                    <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black ${TimeL === item.slot ? "bg-black" : ""}`} onClick={async () => { props.setTime({ "time": item.slot }); setTimeL(item.slot); await setSlotG(neetSlot); setDateG(item.slot_date); handleSetTimeSlot() }}>
+                                    <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black ${DateL === item.slot_date ? "bg-black" : ""}`} onClick={async () => { setDateG(item.slot_date); handleSetTimeSlot(item.slot_date) }}>
                                         <div className={`text-[#696DCA] text-lg font-bold`}>{item.slot_date}</div>
                                     </div>
                                 )) : ""
-                            }
+                            } */}
                             {
-                                /* <Dateslot day='Mon' date="28 Oct" color="#696DCA"></Dateslot> */
+                                onlydates &&
+                                onlydates.map((item, index) => (
+                                    <div key={index} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black ${DateL === item ? "bg-black" : ""}`} onClick={async () => { setDateG(item); handleSetTimeSlot(item) }}>
+                                        <div className={`text-[#696DCA] text-lg font-bold`}>{item}</div>
+                                    </div>
+                                ))
                             }
+
                             <img src={rightdate} alt="" />
                         </div>
                     </div>
@@ -258,14 +325,14 @@ export default function PickDateTime(props) {
                         <div className='flex flex-row items-center justify-start'>
                             <img src={leftdate} alt="" />
 
-                            {(timeArr && timeArr.length !== 0 ) ? (
+                            {(timeArr && timeArr.length !== 0) ? (
                                 timeArr.map((item, index) => (
-                                <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black`} onClick={async () => { setTimeId(item.id); }}>
-                                    <div className={`text-[#696DCA] text-lg font-bold`}>{item.slot}</div>
-                                </div>
+                                    <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black ${TimeL === item.slot ? "bg-black" : ""}`} onClick={async () => { setTimeL(item.slot) }}>
+                                        <div className={`text-[#696DCA] text-lg font-bold`}>{item.slot}</div>
+                                    </div>
                                 ))
                             ) : ""}
-                            
+
                             {/* {jeeSlot && stream === 'jee' ?
                                 jeeSlot.map((item, index) => (
                                     <div key={item.id} className={`w-[6.375rem] h-[2.9375rem] rounded-lg flex flex-col items-center justify-center border border-[#696DCA] mr-3 ml-3 cursor-pointer sele active:bg-black ${TimeL === item.slot ? "bg-black" : ""}`} onClick={() => { props.setTime({ "time": item.slot }); setTimeL(item.slot) }}>
