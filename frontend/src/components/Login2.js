@@ -47,6 +47,7 @@ export default function Login2() {
         // setUser({})
         console.log(data2);
         const obj = { "username" :  data2.username , "user_id" : data2.user_id };
+        console.log(data2)
         setUser(obj);
         setToken(data2.token);
 

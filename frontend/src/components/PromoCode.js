@@ -1,24 +1,30 @@
-import React, { useRef } from 'react'
+import React, { useRef ,useContext} from 'react'
+import TokenContext from './context/UserToken';
 
 export default function PromoCode(props) {
+    const url = process.env.REACT_APP_BASE_URL;
+    const { token, setToken } = useContext(TokenContext); 
     const code = useRef()
     async function Applycode() {
         console.log('code')
+        console.log(code.current)
         console.log(code.current.value)
         let apicode = code.current.value;
-        try {
+        try { 
             let headersList = {
                 "Accept": "*/*",
                 "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-                "Content-Type": "application/json"
+                "Authorization": `Token ${token}`,
+                "Content-Type": "application/json",
+                // 'X-CSRFToken': csrfToken
             }
 
             let bodyContent = JSON.stringify({
                 "code": apicode,
-                "service_code": "1234"
+                "service_code": "neet"
             });
 
-            let response = await fetch("https://fa67-2401-4900-73e4-ae27-88ba-e20e-3377-af33.ngrok-free.app/api/verify-promo-code/", {
+            let response = await fetch(`${url}/api/verify-promo-code/`, {
                 method: "POST",
                 body: bodyContent,
                 headers: headersList
@@ -80,7 +86,7 @@ export default function PromoCode(props) {
                         </div>
                     </div>
                     <div className='flex flex-row justify-between items-center mt-4'>
-                        <input ref={code} type='text' className='h-16 w-[33rem] mr-4 rounded-lg border pl-4 text-xl  outline-none placeholder:text-[#878787]' placeholder='Have a promo code?'></input>
+                        <input ref={code} type='text' className='h-16 w-[33rem] mr-4 rounded-lg border pl-4 text-xl outline-none placeholder:text-[#878787]' placeholder='Have a promo code?'></input>
                         <div className='text-[#878787] text-xl font-medium cursor-pointer' onClick={Applycode}>APPLY NOW</div>
                     </div>
                 </div>

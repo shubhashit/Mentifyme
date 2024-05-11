@@ -47,7 +47,7 @@ export default function Payment() {
       <Navbar></Navbar>
       {section == 1 ? <PickDateTime d setDateTimeDetails={setDateTimeDetails} paymentSequence={paymentSequence} ></PickDateTime> : <></>}
       {section == 2 ? <Details OnPrevious={OnPrevious} setpersonaldetails={setpersonaldetails} setsection={setsection} paymentSequence={paymentSequence} dateTimeDetails={dateTimeDetails}></Details> : <></>}
-      {section == 3 ? <PromoCode OnPrevious={OnPrevious} setsection={setsection} paymentSequence={paymentSequence}></PromoCode> : <></>}
+      {section == 3 ? <PromoCode OnPrevious={OnPrevious} setsection={setsection} paymentSequence={paymentSequence}dateTimeDetails={dateTimeDetails} ></PromoCode> : <></>}
     </div>
   )
 }
