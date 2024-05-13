@@ -109,15 +109,15 @@ export default function Details(props) {
                         <div className='text-lg font-medium '>Personal Details</div>
                         <div className='mt-4'>
                             <div className='text-base  '>Name</div>
-                            <div><input ref={Name} type="text" className='border h-14 pl-4 w-full rounded-lg mt-2 outline-none' placeholder='Enter your full name' /></div>
+                            <div><input  type="text" className='border h-14 pl-4 w-full rounded-lg mt-2 outline-none' placeholder='Enter your full name' /></div>
                         </div>
                         <div className='mt-4'>
                             <div className='text-xl '>Mobile number</div>
-                            <div><input ref={Mobile_number} type="text" className='border h-14 pl-4 w-full rounded-lg mt-2 outline-none' placeholder='+91 | enter mobile number' /></div>
+                            <div><input  type="text" className='border h-14 pl-4 w-full rounded-lg mt-2 outline-none' placeholder='+91 | enter mobile number' /></div>
                         </div>
                         <div className='mt-4'>
                             <div className='text-xl '>Email address</div>
-                            <div><input ref={Email} type="email" className='border h-14 pl-4 w-full rounded-lg mt-2 outline-none' placeholder='Enter your email address' /></div>
+                            <div><input  type="email" className='border h-14 pl-4 w-full rounded-lg mt-2 outline-none' placeholder='Enter your email address' /></div>
                         </div>
                     </div>
                 </div>

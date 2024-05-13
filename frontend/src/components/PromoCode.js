@@ -1,13 +1,19 @@
-import React, { useRef ,useContext} from 'react'
+import React, { useRef ,useContext, useState} from 'react'
 import TokenContext from './context/UserToken';
 
 export default function PromoCode(props) {
     const url = process.env.REACT_APP_BASE_URL;
     const { token, setToken } = useContext(TokenContext); 
-    const code = useRef()
+    const code = useRef(null)
+    const [Code , setCode] = useState()
+    function codeChange(e){
+        console.log(e.target)
+        console.log(e.target.value)
+        setCode(e.target.value)
+    }
     async function Applycode() {
         console.log('code')
-        console.log(code.current)
+        // console.log(code._root._getText())
         console.log(code.current.value)
         let apicode = code.current.value;
         try { 
@@ -86,7 +92,7 @@ export default function PromoCode(props) {
                         </div>
                     </div>
                     <div className='flex flex-row justify-between items-center mt-4'>
-                        <input ref={code} type='text' className='h-16 w-[33rem] mr-4 rounded-lg border pl-4 text-xl outline-none placeholder:text-[#878787]' placeholder='Have a promo code?'></input>
+                        <input ref={code}  type='text' className='h-16 w-[33rem] mr-4 rounded-lg border pl-4 text-xl outline-none placeholder:text-[#878787]' placeholder='Have a promo code?' onChange={codeChange}></input>
                         <div className='text-[#878787] text-xl font-medium cursor-pointer' onClick={Applycode}>APPLY NOW</div>
                     </div>
                 </div>
@@ -132,7 +138,7 @@ export default function PromoCode(props) {
                         </div>
                     </div>
                     <div className='flex flex-row justify-between items-center mt-4 w-full'>
-                        <input ref={code} type='text' className='h-12 w-[70%] rounded-lg border pl-4 text-sm  outline-none placeholder:text-[#878787]' placeholder='Have a promo code?'></input>
+                        <input  type='text' className='h-12 w-[70%] rounded-lg border pl-4 text-sm  outline-none placeholder:text-[#878787]' placeholder='Have a promo code?'></input>
                         <div className='text-[#878787] text-sm font-medium cursor-pointer' onClick={Applycode}>APPLY NOW</div>
                     </div>
                     <div className='w-full p-4 text-[12px] font-medium bg-[#696DCA] rounded text-[white] flex justify-center items-center mr-2 cursor-pointer'>Proceed to Payment</div>
