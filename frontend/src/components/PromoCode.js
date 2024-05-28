@@ -5,12 +5,9 @@ export default function PromoCode(props) {
     const url = process.env.REACT_APP_BASE_URL;
     const { token, setToken } = useContext(TokenContext); 
     const code = useRef(null)
+    const [price , setPrice ] = useState();
     const [Code , setCode] = useState()
-    function codeChange(e){
-        console.log(e.target)
-        console.log(e.target.value)
-        setCode(e.target.value)
-    }
+    
     async function Applycode() {
         console.log('code')
         // console.log(code._root._getText())
@@ -35,11 +32,13 @@ export default function PromoCode(props) {
                 body: bodyContent,
                 headers: headersList
             });
-
-            let data = await response.text();
+            setCode(apicode);
+            let data = await response.json();
+            setPrice(data);
             console.log(data);
 
         } catch (error) {
+            
             console.log(error)
         }
     }
@@ -71,28 +70,28 @@ export default function PromoCode(props) {
                     <div className='absolute text-2xl font-normal top-4 left-4 text-[#696DCA] cursor-pointer' onClick={props.OnPrevious}>&lt; Pervious</div>
                     <div>
 
-                        <div className='text-base font-normal text-[#878787] '>Session details will be sent to your email address <span className='text-[#696DCA]'>abhisheksinghlodhi2021@gmail.com</span> </div>
+                        <div className='text-base font-normal text-[#878787] '>Session details will be sent to your email address <span className='text-[#696DCA]'>{props.personaldetails.email}</span> </div>
                         <div className='h-16 w-[38rem] text-xl font-normal bg-[#696DCA1A] flex flex-row justify-between items-center pr-4 pl-4 mt-4 rounded'>
                             <div>Payable Amount</div>
-                            <div>₹ 799</div>
+                            <div>₹ {}</div>
                         </div>
                     </div>
                     <div>
 
-                        <div className='text-xl font-normal text-[#878787] flex flex-row justify-between items-center'>
+                        {Code && <div className='text-xl font-normal text-[#878787] flex flex-row justify-between items-center'>
                             <div className='flex flex-row items-center'>
-                                <input className='w-6 h-6 bg-[#696DCA] mr-2' type="checkbox" name="" id="" />
-                                Promocode <span className='text-[#696DCA] font-medium mr-1 ml-1'> MENTIFYMEDIWALI </span>applied
+                                <input className='w-6 h-6 bg-[#696DCA] mr-2' type="checkbox" checked name="" id="" />
+                                Promocode <span className='text-[#696DCA] font-medium mr-1 ml-1'> {Code} </span>applied
                             </div>
-                            <div className='text-xl font-normal text-black mr-4'>-₹ 100</div>
-                        </div>
+                            <div className='text-xl font-normal text-black mr-4'>-₹ {price.off_amount}</div>
+                        </div>}
                         <div className='h-16 w-[38rem] text-xl  bg-[#696DCA1A] flex flex-row justify-between items-center pr-4 pl-4 mt-4 border border-[#696DCA] rounded font-medium'>
                             <div>Remaining amount to be paid</div>
-                            <div>₹ 699</div>
+                            <div>₹ {price.amount_after_off}</div>
                         </div>
                     </div>
                     <div className='flex flex-row justify-between items-center mt-4'>
-                        <input ref={code}  type='text' className='h-16 w-[33rem] mr-4 rounded-lg border pl-4 text-xl outline-none placeholder:text-[#878787]' placeholder='Have a promo code?' onChange={codeChange}></input>
+                        <input ref={code}  type='text' className='h-16 w-[33rem] mr-4 rounded-lg border pl-4 text-xl outline-none placeholder:text-[#878787]' placeholder='Have a promo code?'></input>
                         <div className='text-[#878787] text-xl font-medium cursor-pointer' onClick={Applycode}>APPLY NOW</div>
                     </div>
                 </div>

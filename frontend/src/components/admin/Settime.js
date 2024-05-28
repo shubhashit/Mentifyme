@@ -3,7 +3,7 @@ import timeglass from '../../assets/admin/timeglass.png'
 
 export default function Settime() {
     return (
-        <div className='flex flex-col justify-center items-center h-screen'>
+        <div className='flex flex-col items-center  mt-10 mb-4'>
             <div className='border w-[80%]'>
                 <div className='border flex flex-row justify-between p-8'>
                     <div className='flex flex-col'>
@@ -66,7 +66,7 @@ export default function Settime() {
                     </div>
                     <div className='text-lg text-[#3F3D56] mt-3'>Above details will be your weekly schedule until you change</div>
                 </div>
-                <div className='text-lg p-8 text-[#3F3D56] mt-3'>Don't worry! You'll be able to further customize your availability later on.</div>
+                <div className='text-lg p-4 pl-8 text-[#3F3D56] mt-3'>Don't worry! You'll be able to further customize your availability later on.</div>
             </div>
 
             <div className='flex flex-row items-end justify-end w-[80%]'>

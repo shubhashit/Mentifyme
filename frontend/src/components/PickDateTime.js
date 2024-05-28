@@ -74,6 +74,7 @@ export default function PickDateTime(props) {
     const [dateG, setDateG] = useState(undefined);
     const [timeArr, setTimeArr] = useState();
     const [timeId, setTimeId] = useState();
+    const [amount , setAmount] = useState();
 
 
     const { token, setToken } = useContext(TokenContext);
@@ -105,6 +106,7 @@ export default function PickDateTime(props) {
                 // console.log(data.book_data.slotsneet)
                 setjeeSlot(data.book_data.slotsjee);
                 setneetSlot(data.book_data.slotsneet);
+                setAmount(data.amount_services)
                 
                 console.log(jeeSlot, neetSlot)
                 console.log(onlydates)
