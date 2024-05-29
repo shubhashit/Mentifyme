@@ -73,7 +73,7 @@ export default function PromoCode(props) {
                         <div className='text-base font-normal text-[#878787] '>Session details will be sent to your email address <span className='text-[#696DCA]'>{props.personaldetails.email}</span> </div>
                         <div className='h-16 w-[38rem] text-xl font-normal bg-[#696DCA1A] flex flex-row justify-between items-center pr-4 pl-4 mt-4 rounded'>
                             <div>Payable Amount</div>
-                            <div>₹ {}</div>
+                            <div>₹ {props.dateTimeDetails.amount}</div>
                         </div>
                     </div>
                     <div>
@@ -83,11 +83,11 @@ export default function PromoCode(props) {
                                 <input className='w-6 h-6 bg-[#696DCA] mr-2' type="checkbox" checked name="" id="" />
                                 Promocode <span className='text-[#696DCA] font-medium mr-1 ml-1'> {Code} </span>applied
                             </div>
-                            <div className='text-xl font-normal text-black mr-4'>-₹ {price.off_amount}</div>
+                            <div className='text-xl font-normal text-black mr-4'>-₹ {price && price.off_amount}</div>
                         </div>}
                         <div className='h-16 w-[38rem] text-xl  bg-[#696DCA1A] flex flex-row justify-between items-center pr-4 pl-4 mt-4 border border-[#696DCA] rounded font-medium'>
                             <div>Remaining amount to be paid</div>
-                            <div>₹ {price.amount_after_off}</div>
+                            <div>₹ {price && price.amount_after_off}</div>
                         </div>
                     </div>
                     <div className='flex flex-row justify-between items-center mt-4'>

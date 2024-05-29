@@ -106,7 +106,7 @@ export default function PickDateTime(props) {
                 // console.log(data.book_data.slotsneet)
                 setjeeSlot(data.book_data.slotsjee);
                 setneetSlot(data.book_data.slotsneet);
-                setAmount(data.amount_services)
+                setAmount(data.amount_services[0].amount)
                 
                 console.log(jeeSlot, neetSlot)
                 console.log(onlydates)
@@ -191,7 +191,8 @@ export default function PickDateTime(props) {
             "stream" : stream,
             "date" : DateL,
             "time" : TimeL,
-            "id" : timeId
+            "id" : timeId,
+            "amount" : amount
         }
         props.setDateTimeDetails(datetimedata)
         props.paymentSequence();
@@ -236,11 +237,11 @@ export default function PickDateTime(props) {
                     </div>
                 </div>
                 <div className='w-[90%] lg:w-[]]'>
-                    <div className='font-normal text-2xl mt-4'>Choose your stream</div>
+                    {/* <div className='font-normal text-2xl mt-4'>Choose your stream</div> */}
                     <div className='h-[3.5rem] w-[25rem] border rounded-lg'>
                         <label htmlFor="dropdown" ></label>
                         <select id="dropdown" className='h-[3.5rem] w-[25rem] border rounded-lg outline-none text-xl p-2' onChange={handleDropdownChange} defaultValue={"none"}>
-                            {/* <option value="">SELECT YOUR STREAM</option> */}
+                            <option value="">SELECT YOUR STREAM</option>
                             <option value="jee">IIT JEE</option>
                             <option value="neet">NEET</option>
                             {/* <option value="codehere">Option 3</option> */}
@@ -268,12 +269,12 @@ export default function PickDateTime(props) {
                     </div>
                     <div className='mt-8 flex flex-col w-full ml-10' >
                         <div className='font-medium text-2xl mb-4'>Pick a time</div>
-                        <div className='font-normal text-base  text-[#878787]'>Choose your suitable time period</div>
+                        {/* <div className='font-normal text-base  text-[#878787]'>Choose your suitable time period</div>
                         <div className='flex flex-row mt-3 mb-3'>
                             <div className='w-[6.5rem] h-[2rem] bg-[#D9D9D9] rounded text-[#878787] flex justify-center items-center mr-2'>Morning</div>
                             <div className='w-[6.5rem] h-[2rem] bg-[#696DCA] rounded text-[white] flex justify-center items-center mr-2'>Night</div>
                             <div className='w-[6.5rem] h-[2rem] bg-[#D9D9D9] rounded text-[#878787] flex justify-center items-center'>Afternoon</div>
-                        </div>
+                        </div> */}
                         <div className='font-medium text-base text-[] mb-2 '>Available time according to selected slot for call</div>
 
                         <div>
