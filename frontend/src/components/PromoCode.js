@@ -1,5 +1,6 @@
 import React, { useRef ,useContext, useState} from 'react'
 import TokenContext from './context/UserToken';
+import useRazorpay from "react-razorpay";
 
 export default function PromoCode(props) {
     const url = process.env.REACT_APP_BASE_URL;
@@ -7,7 +8,9 @@ export default function PromoCode(props) {
     const code = useRef(null)
     const [price , setPrice ] = useState();
     const [Code , setCode] = useState()
-    
+    const [Razorpay] = useRazorpay();
+
+
     async function Applycode() {
         console.log('code')
         // console.log(code._root._getText())
@@ -27,6 +30,74 @@ export default function PromoCode(props) {
                 "service_code": "neet"
             });
 
+            let response = await fetch(`${url}/`, {
+                method: "POST",
+                body: bodyContent,
+                headers: headersList
+            });
+            let data = await response.json();
+            const order_id = data.data.data.id
+            const options = {
+                key: "YOUR_KEY_ID", // Enter the Key ID generated from the Dashboard
+                amount: "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                currency: "INR",
+                name: "Acme Corp",
+                description: "Test Transaction",
+                image: "https://example.com/your_logo",
+                order_id: order_id, //This is a sample Order ID. Pass the `id` obtained in the response of createOrder().
+                handler: function (response) {
+                    alert(response.razorpay_payment_id);
+                    alert(response.razorpay_order_id);
+                    alert(response.razorpay_signature);
+                },
+                prefill: {
+                    name: "Piyush Garg",
+                    email: "youremail@example.com",
+                    contact: "9999999999",
+                },
+                notes: {
+                    address: "Razorpay Corporate Office",
+                },
+                theme: {
+                    color: "#3399cc",
+                },
+            };
+
+            const rzp1 = new Razorpay(options);
+
+            rzp1.on("payment.failed", function (response) {
+                alert(response.error.code);
+                alert(response.error.description);
+                alert(response.error.source);
+                alert(response.error.step);
+                alert(response.error.reason);
+                alert(response.error.metadata.order_id);
+                alert(response.error.metadata.payment_id);
+            });
+
+            rzp1.open();
+            
+
+        } catch (error) {
+            
+            console.log(error)
+        }
+    }
+    async function razorPay(){
+        try {
+            let headersList = {
+                "Accept": "*/*",
+                "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+                "Authorization": `Token ${token}`,
+                "Content-Type": "application/json",
+                // 'X-CSRFToken': csrfToken
+            }
+
+            let bodyContent = JSON.stringify({
+                "amount" : "",
+                "currency" : "INR"
+            });
+
             let response = await fetch(`${url}/api/verify-promo-code/`, {
                 method: "POST",
                 body: bodyContent,
@@ -38,7 +109,7 @@ export default function PromoCode(props) {
             console.log(data);
 
         } catch (error) {
-            
+
             console.log(error)
         }
     }
@@ -140,7 +211,7 @@ export default function PromoCode(props) {
                         <input  type='text' className='h-12 w-[70%] rounded-lg border pl-4 text-sm  outline-none placeholder:text-[#878787]' placeholder='Have a promo code?'></input>
                         <div className='text-[#878787] text-sm font-medium cursor-pointer' onClick={Applycode}>APPLY NOW</div>
                     </div>
-                    <div className='w-full p-4 text-[12px] font-medium bg-[#696DCA] rounded text-[white] flex justify-center items-center mr-2 cursor-pointer'>Proceed to Payment</div>
+                    <div className='w-full p-4 text-[12px] font-medium bg-[#696DCA] rounded text-[white] flex justify-center items-center mr-2 cursor-pointer' onClick={razorPay}>Proceed to Payment</div>
                 </div>
             </div>
         </>
